@@ -495,6 +495,17 @@
       }
     }
 
+    /* 행사기간을 상단 매장명 아래에 표시 (엑셀 행사날짜 연동) */
+    .subscription-pop .sub-event-period{
+      text-align:center!important;color:#0a327b!important;font-weight:900!important;
+      font-size:clamp(10px,1.1vw,13px)!important;line-height:1.15!important;
+      margin:0 auto!important;padding:0!important;
+    }
+    @media print{
+      .subscription-pop{grid-template-rows:24mm 14mm 10mm auto auto!important}
+      .subscription-pop .sub-event-period{font-size:10pt!important;line-height:1.1!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -2793,14 +2804,14 @@
       const discountLine=discount!==''?'<div class="sub-benefit"><span>제휴카드 월 할인</span><b>'+popWon(discount)+'</b></div>':'';
       const benefits=[care?'<div><b>안심케어</b> '+popSafe(care)+'</div>':'',regular?'<div><b>정기케어</b> '+popSafe(regular)+'</div>':''].filter(Boolean).join('');
       return '<article class="subscription-pop">'+
-        '<header class="sub-top"><div class="sub-ribbon">가전 구독 <em>특별행사</em></div><div class="sub-store">LOTTE HIMART <strong>상록수점</strong></div></header>'+
+        '<header class="sub-top"><div class="sub-ribbon">가전 구독 <em>특별행사</em></div><div class="sub-store">LOTTE HIMART <strong>상록수점</strong></div>'+(term?'<div class="sub-event-period">행사기간 : '+popSafe(term)+'</div>':'')+'</header>'+
         '<div class="sub-title">'+popSafe(name||'가전 구독')+'</div><div class="sub-model">'+popSafe(model)+'</div>'+
         '<div class="sub-content">'+
         '<div class="sub-details"><div class="sub-facts"><div><span>구독기간</span><b>'+popSafe(months)+'개월</b></div><div><span>기본 월 구독료</span><b>'+popWon(base)+'</b></div></div>'+
         '<div class="sub-highlight"><div>제휴카드 <em>구독혜택</em></div><strong>월 '+popWon(card)+'</strong></div>'+
         '<div class="sub-benefits">'+discountLine+'<div class="sub-care-title">구독혜택</div><div class="sub-allcare"><b>가전수리올케어</b> <span>혜택 제공 (세부 보장조건 별도 확인)</span></div>'+benefits+'</div>'+
         '<div class="sub-gift">하이마트에서 첫 구독을 특별하게!</div></div></div>'+
-        '<footer class="sub-notes"><div>※ 서비스 안내 : '+popSafe(months)+'개월 기준'+(term?' · 행사 '+popSafe(term):'')+'</div>'+
+        '<footer class="sub-notes"><div>※ 서비스 안내 : '+popSafe(months)+'개월 기준</div>'+
         '<div>※ 제휴카드 조건 : 전월 30만원 이상 사용실적 충족 시 할인 적용</div>'+
         '<div>※ 구독총액 : '+popWon(total)+'</div></footer></article>';
     }
