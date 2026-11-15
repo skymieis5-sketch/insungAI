@@ -50,6 +50,30 @@
       .sub-ribbon{font-size:19pt!important}.sub-store{font-size:10pt!important}.sub-title{font-size:24pt!important}.sub-model{font-size:11pt!important}.sub-facts span{font-size:10pt!important}.sub-facts b{font-size:12pt!important}.sub-highlight>div{font-size:16pt!important}.sub-highlight strong{font-size:33pt!important}.sub-benefits{font-size:12pt!important;line-height:1.65!important}.sub-benefits .sub-benefit{font-size:13pt!important}.sub-care-title{font-size:14pt!important}.sub-gift{font-size:11pt!important}.sub-notes{font-size:9pt!important}
     }
 
+    /* PRINT V2: 빈 박스를 줄이고 카드 혜택·가격을 지면 중앙에 크게 배치 */
+    .sub-details{justify-content:flex-start!important;gap:3%!important;height:100%}
+    .sub-facts{flex:0 0 auto}
+    .sub-highlight{flex:0 0 auto;padding:3.5%!important}
+    .sub-highlight strong{padding:6% 0!important}
+    .sub-benefits{flex:1!important;display:flex!important;flex-direction:column!important;justify-content:center!important;gap:6%!important;padding:7%!important}
+    .sub-benefits .sub-benefit{padding:3% 0!important;border-bottom:1px solid #c7d9f1}
+    .sub-benefits .sub-care-title{margin:0!important}
+    .sub-benefits>div:not(.sub-care-title):not(.sub-benefit){padding:3% 0!important;margin:0!important;border-bottom:1px solid #e3eaf5}
+    .sub-notes{padding:2% 1% 0!important}
+    @media print{
+      .sub-title{font-size:29pt!important}
+      .sub-model{font-size:13pt!important}
+      .sub-facts span{font-size:13pt!important}
+      .sub-facts b{font-size:15pt!important}
+      .sub-highlight>div{font-size:20pt!important}
+      .sub-highlight strong{font-size:40pt!important}
+      .sub-benefits{font-size:16pt!important;line-height:1.5!important}
+      .sub-benefits .sub-benefit{font-size:17pt!important}
+      .sub-care-title{font-size:17pt!important}
+      .sub-gift{font-size:13pt!important}
+      .sub-notes{font-size:10pt!important;line-height:1.45!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
