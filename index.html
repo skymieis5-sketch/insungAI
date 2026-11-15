@@ -749,7 +749,7 @@
           <h3 class="font-extrabold text-sm sm:text-base text-stone-900 flex items-center gap-1.5">
             <span>📅</span> 상록수 하이마트 휴무 계획표
           </h3>
-          <p class="text-[10px] sm:text-[11px] text-stone-500 mt-0.5">2026년 11월 직원별 휴무 · 금일 출근자 현황</p>
+          <p class="text-[10px] sm:text-[11px] text-stone-500 mt-0.5">2026년 11월 직원별 휴무 · 금일 출근자 현황 (원본 휴무표 반영)</p>
         </div>
         <button type="button" onclick="closeModal('schedule-modal')" class="text-stone-400 hover:text-stone-700 text-lg font-bold px-2">✕</button>
       </div>
@@ -1357,55 +1357,205 @@
       renderWeeklyStrip(now);
     }
 
+    // 2026년 11월 휴무표 이미지에서 날짜별로 옮긴 단일 데이터 원본.
+    // O=휴무, A=연차, V=휴가, B=반차, BB=반반차, 5시=17시 퇴근.
+    // 표가 제공되지 않은 1일과 30일은 계산하지 않음.
+    const storeRoster202611 = [
+  {
+    "name": "유상준",
+    "role": "점장",
+    "entries": {
+      "4": "O",
+      "5": "O",
+      "7": "A",
+      "8": "O",
+      "14": "A",
+      "15": "A",
+      "16": "O",
+      "17": "O",
+      "20": "O",
+      "21": "A",
+      "24": "O",
+      "27": "O",
+      "28": "B"
+    }
+  },
+  {
+    "name": "박인성",
+    "role": "부점장/대형",
+    "entries": {
+      "2": "O",
+      "3": "O",
+      "6": "O",
+      "7": "BB",
+      "9": "V",
+      "10": "V",
+      "11": "V",
+      "12": "A",
+      "13": "A",
+      "14": "O",
+      "18": "O",
+      "19": "O",
+      "24": "O",
+      "27": "O"
+    }
+  },
+  {
+    "name": "윤상기",
+    "role": "3층 대형1",
+    "entries": {
+      "3": "5시",
+      "4": "O",
+      "5": "O",
+      "8": "B",
+      "11": "O",
+      "15": "O",
+      "18": "O",
+      "19": "O",
+      "24": "A",
+      "25": "O",
+      "26": "O"
+    }
+  },
+  {
+    "name": "박민우",
+    "role": "3층 대형2",
+    "entries": {
+      "2": "O",
+      "6": "O",
+      "7": "BB",
+      "8": "A",
+      "9": "O",
+      "12": "O",
+      "15": "5시",
+      "16": "O",
+      "20": "O",
+      "22": "BB",
+      "25": "O",
+      "29": "O"
+    }
+  },
+  {
+    "name": "정순형",
+    "role": "3층 대형2",
+    "entries": {
+      "4": "O",
+      "5": "O",
+      "6": "5시",
+      "10": "O",
+      "14": "A",
+      "17": "O",
+      "20": "O",
+      "23": "O",
+      "24": "A",
+      "27": "O"
+    }
+  },
+  {
+    "name": "전상웅",
+    "role": "2층 주방",
+    "entries": {
+      "3": "O",
+      "6": "O",
+      "9": "O",
+      "10": "O",
+      "11": "A",
+      "17": "O",
+      "18": "A",
+      "22": "O",
+      "23": "O",
+      "27": "O"
+    }
+  },
+  {
+    "name": "김상희",
+    "role": "2층 리빙",
+    "entries": {
+      "4": "O",
+      "5": "O",
+      "7": "A",
+      "8": "A",
+      "9": "V",
+      "10": "V",
+      "11": "V",
+      "12": "V",
+      "13": "V",
+      "14": "V",
+      "15": "V",
+      "16": "O",
+      "19": "O",
+      "21": "O",
+      "25": "O",
+      "26": "O",
+      "29": "O"
+    }
+  },
+  {
+    "name": "문혜영",
+    "role": "2층 쿠쿠",
+    "entries": {
+      "2": "O",
+      "5": "O",
+      "9": "O",
+      "12": "O",
+      "18": "O",
+      "19": "O",
+      "22": "O",
+      "27": "O",
+      "28": "O"
+    }
+  },
+  {
+    "name": "윤정후",
+    "role": "1층 스마트",
+    "entries": {
+      "2": "O",
+      "3": "O",
+      "6": "A",
+      "13": "O",
+      "14": "O",
+      "16": "O",
+      "17": "O",
+      "23": "O",
+      "24": "O"
+    }
+  }
+];
+
+    function renderStoreRosterTable() {
+      const body = document.querySelector('#schedule-modal tbody');
+      if (!body) return;
+      const offCodes = new Set(['O','A','V']);
+      body.innerHTML = storeRoster202611.map(person => {
+        const entries = Object.entries(person.entries).sort((a,b)=>Number(a[0])-Number(b[0]));
+        const offCount = entries.filter(([,code])=>offCodes.has(code)).length;
+        const detail = entries.map(([day,code])=>day + '(' + code + ')').join(', ');
+        return '<tr class="hover:bg-stone-50"><td class="p-2 sm:p-2.5 font-bold">' + person.role +
+          '</td><td class="p-2 sm:p-2.5">' + person.name +
+          '</td><td class="p-2 sm:p-2.5 font-bold">' + offCount +
+          '일</td><td class="p-2 sm:p-2.5 text-stone-600 text-[11px]">' + detail + '</td></tr>';
+      }).join('');
+    }
+
     function renderTodayStaff(now) {
       const countEl = document.getElementById('today-staff-count');
       const namesEl = document.getElementById('today-staff-names');
       const noteEl = document.getElementById('today-staff-note');
       if (!countEl || !namesEl || !noteEl) return;
-      if (now.getFullYear() !== 2026 || now.getMonth() !== 10) {
+      renderStoreRosterTable();
+      if (now.getFullYear() !== 2026 || now.getMonth() !== 10 || now.getDate() < 2 || now.getDate() > 29) {
         countEl.textContent = '—';
-        namesEl.textContent = '해당 월의 근무표가 등록되지 않았습니다.';
-        noteEl.textContent = '2026년 11월 휴무표만 등록됨';
+        namesEl.textContent = '해당 날짜의 확정 휴무표가 없습니다.';
+        noteEl.textContent = '2026년 11월 2~29일 휴무표 기준';
         return;
       }
-      // 11/15 실제 근무 확정 명단: 휴무표 원본과 불일치했던 일자를 우선 적용
-      if (now.getDate() === 15) {
-        countEl.textContent = '6명';
-        namesEl.textContent = '박인성 · 정순형 · 전상웅 · 문혜영 · 윤정후 · 박민우';
-        noteEl.textContent = '11/15 확인된 실제 근무자 · 박민우 17시 퇴근 · 근무표 v2';
-        return;
-      }
-      const rows = document.querySelectorAll('#schedule-modal tbody tr');
       const day = now.getDate();
-      const working = [];
-      const partial = [];
-      rows.forEach(row => {
-        const cells = row.querySelectorAll('td');
-        if (cells.length < 4) return;
-        const name = cells[1].textContent.trim().replace(/\s*\(본인\)/, '');
-        const schedule = cells[3].textContent.trim();
-        let isOff = false, isPartial = false;
-        schedule.split(',').forEach(part => {
-          const match = part.trim().match(/^(\d{1,2})(?:\s*[~\-]\s*(\d{1,2}))?\s*(?:\(([^)]*)\))?/);
-          if (!match) return;
-          const first = Number(match[1]), last = match[2] ? Number(match[2]) : first;
-          if (day < first || day > last) return;
-          const code = (match[3] || '').trim().toUpperCase();
-          // A=연차, V=휴가: 근무 인원에서 제외
-          // 5시=17:00 퇴근: 출근 인원에 포함, 조기퇴근 표시
-          // 반차/반반차: 출근 인원에 포함, 부분근무 표시
-          if (code === '5시' || /반차|반반|^B$|^BB$/.test(code)) isPartial = true;
-          else if (code === '' || /^(A|V)$|연차|휴가|휴무|^OFF$/.test(code)) isOff = true;
-          else isOff = true;
-        });
-        if (!isOff) { working.push(name); if (isPartial) partial.push(name); }
-      });
-      if (!working.length && !rows.length) {
-        countEl.textContent = '—'; namesEl.textContent = '휴무표 데이터를 확인할 수 없습니다.'; return;
-      }
+      const working = storeRoster202611.filter(p=>!['O','A','V'].includes(p.entries[day] || ''));
+      const partial = working.filter(p=>['B','BB','5시'].includes(p.entries[day]));
       countEl.textContent = working.length + '명';
-      namesEl.textContent = working.length ? working.join(' · ') : '오늘 출근 예정자 없음';
-      noteEl.textContent = '2026년 11월 수정 근무표 기준 (A 연차 · V 휴가 · 5시 조기퇴근)' + (partial.length ? ' · 부분근무/17시 퇴근: ' + partial.join(', ') : '');
+      namesEl.textContent = working.map(p=>p.name).join(' · ');
+      noteEl.textContent = '11월 원본 휴무표 기준 · ' +
+        (partial.length ? partial.map(p=>p.name + '(' + (p.entries[day] === '5시' ? '17시 퇴근' : p.entries[day]) + ')').join(', ') : '전체 정상근무');
     }
 
     function renderWeeklyStrip(now) {
