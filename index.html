@@ -380,6 +380,31 @@
       .subscription-pop .sub-highlight{margin-top:0!important}
     }
 
+    /* 하단 띠와 유의사항 사이의 과도한 빈 공간 제거 */
+    @media print{
+      .subscription-pop{
+        grid-template-rows:20mm 14mm 10mm auto auto!important;
+        align-content:start!important;
+        align-items:stretch!important;
+      }
+      .subscription-pop .sub-content{
+        height:auto!important;
+        min-height:0!important;
+        align-self:start!important;
+      }
+      .subscription-pop .sub-details{
+        height:auto!important;
+        grid-template-rows:23mm 33mm 48mm 10mm!important;
+        align-content:start!important;
+        row-gap:1.5mm!important;
+      }
+      .subscription-pop .sub-notes{
+        align-self:start!important;
+        margin-top:2mm!important;
+        padding-top:0!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
