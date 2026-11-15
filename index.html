@@ -24,17 +24,6 @@
     
     .scrollbar-none::-webkit-scrollbar { display: none; }
     .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
-    @media print {
-      @page { size: A4 portrait; margin: 8mm; }
-      #pop-cards-container { display: grid !important; grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 6mm !important; }
-      #pop-cards-container > div { break-inside: avoid; page-break-inside: avoid; min-height: 110mm; }
-      #pop-print-area { background: white !important; }
-      body * { visibility: hidden !important; }
-      #pop-print-area, #pop-print-area *, #sub-proposal-view, #sub-proposal-view * { visibility: visible !important; }
-      #pop-print-area, #sub-proposal-view { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 20px; }
-      .no-print { display: none !important; }
-    }
-  
     /* 구독 POP 고정 시안: A4 가로에 세로형 2개 */
     .subscription-pop{box-sizing:border-box;width:100%;aspect-ratio:148.5/210;background:#fff;color:#07183a;border:2px solid #073d91;border-radius:13px;overflow:hidden;padding:3%;display:flex;flex-direction:column;font-family:Pretendard,'Malgun Gothic',sans-serif;line-height:1.25}
     .sub-top{flex:0 0 auto}.sub-ribbon{background:linear-gradient(120deg,#051947,#0657b7,#06133c);border-radius:40% 40% 10px 10px;color:white;text-align:center;font-size:clamp(13px,2.1vw,25px);font-weight:950;padding:2.2%}.sub-ribbon em{color:#ffe500;font-style:normal}.sub-store{display:flex;align-items:center;justify-content:center;gap:12%;color:#df2029;font-weight:900;font-size:clamp(9px,1.2vw,15px);padding:2%}.sub-store strong{background:#072c70;color:white;border-radius:30px;padding:1% 5%;font-size:.9em}
@@ -48,6 +37,7 @@
       @page{size:A4 landscape;margin:0}
       html,body{width:297mm!important;height:auto!important;margin:0!important;padding:0!important;background:#fff!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
       body>*:not(#pop-modal){display:none!important}
+      #pop-modal, #pop-modal *{visibility:visible!important}
       #pop-modal{display:block!important;position:static!important;inset:auto!important;background:white!important;padding:0!important;overflow:visible!important}
       #pop-modal>div{display:block!important;max-width:none!important;width:297mm!important;max-height:none!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;border-radius:0!important;box-shadow:none!important;background:white!important}
       #pop-modal .no-print,#pop-model-picker,#pop-load-status,.sub-photo-control{display:none!important}
@@ -2331,7 +2321,7 @@
           if(!rows.length || !rows.some(x=>x['상품코드']!==undefined && x['제휴카드 혜택가']!==undefined && x['구독 총액']!==undefined)) throw new Error("필수 열(상품코드, 제휴카드 혜택가, 구독 총액)이 없습니다. '값정리' 시트를 확인해 주세요.");
           subscriptionRows=rows.filter(x=>popText(x['상품코드']) && Number(x['구독 개월 수'])>0).map((x,i)=>({...x,_id:i,_selected:i<2}));
           if(!subscriptionRows.length) throw new Error('구독 모델 데이터가 없습니다.');
-          document.getElementById('pop-load-status').textContent=popSafe(file.name)+' · '+subscriptionRows.length+'개 모델 불러옴';
+          document.getElementById('pop-load-status').textContent=file.name+' · '+subscriptionRows.length+'개 모델 불러옴';
           filterSubscriptionModels();
         } catch(err) { alert('엑셀 불러오기 실패: '+err.message); }
       };
