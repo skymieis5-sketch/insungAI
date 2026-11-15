@@ -443,6 +443,29 @@
       }
     }
 
+    /* 가전수리올케어 제목과 설명 사이 간격만 축소 */
+    .subscription-pop .sub-benefits .sub-allcare{
+      display:flex!important;
+      flex-direction:row!important;
+      justify-content:flex-start!important;
+      align-items:center!important;
+      column-gap:3px!important;
+      text-align:left!important;
+    }
+    .subscription-pop .sub-benefits .sub-allcare b{
+      margin:0!important;
+      padding:0!important;
+      flex:0 0 auto!important;
+    }
+    .subscription-pop .sub-benefits .sub-allcare span{
+      margin:0!important;
+      padding:0!important;
+      flex:0 1 auto!important;
+    }
+    @media print{
+      .subscription-pop .sub-benefits .sub-allcare{column-gap:1mm!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
