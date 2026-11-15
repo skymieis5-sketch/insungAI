@@ -422,6 +422,27 @@
       .subscription-pop .sub-notes{margin-top:2mm!important}
     }
 
+    /* 제휴카드 월 할인 행만 강조: 구독혜택 나머지와 전체 인쇄 구성 유지 */
+    .subscription-pop .sub-benefits .sub-benefit,
+    .subscription-pop .sub-benefits .sub-benefit span,
+    .subscription-pop .sub-benefits .sub-benefit b{
+      font-size:clamp(14px,1.55vw,19px)!important;
+      font-weight:950!important;
+      line-height:1.2!important;
+    }
+    @media print{
+      .subscription-pop .sub-benefits{
+        grid-template-rows:10mm 7mm repeat(3,10mm)!important;
+      }
+      .subscription-pop .sub-benefits .sub-benefit,
+      .subscription-pop .sub-benefits .sub-benefit span,
+      .subscription-pop .sub-benefits .sub-benefit b{
+        font-size:14pt!important;
+        font-weight:950!important;
+        line-height:1.2!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
