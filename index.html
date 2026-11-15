@@ -223,6 +223,17 @@
       .subscription-pop .sub-benefits .sub-allcare span{font-size:11pt!important}
     }
 
+    /* 인쇄 너비 고정: 148.5mm 반쪽 용지에서 좌우 4mm만 제외 */
+    @media print{
+      .subscription-pop .sub-content{display:block!important;width:100%!important;min-width:0!important;max-width:none!important}
+      .subscription-pop .sub-details{display:grid!important;width:100%!important;min-width:0!important;max-width:none!important;grid-template-columns:minmax(0,1fr)!important}
+      .subscription-pop .sub-facts,.subscription-pop .sub-highlight,.subscription-pop .sub-benefits,.subscription-pop .sub-gift{display:block!important;width:100%!important;min-width:0!important;max-width:none!important;justify-self:stretch!important}
+      .subscription-pop .sub-benefits{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:8mm 8mm repeat(3,minmax(0,1fr))!important}
+      .subscription-pop .sub-benefits .sub-allcare{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;flex-wrap:nowrap!important;white-space:nowrap!important;gap:2mm!important;font-size:10pt!important}
+      .subscription-pop .sub-benefits .sub-allcare b,.subscription-pop .sub-benefits .sub-allcare span{font-size:10pt!important;white-space:nowrap!important}
+      .subscription-pop .sub-notes{font-size:10pt!important;line-height:1.25!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
