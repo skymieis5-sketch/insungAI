@@ -123,6 +123,15 @@
       .sub-notes{font-size:8pt!important;line-height:1.3!important;margin-top:2mm!important}
     }
 
+    /* 매장명 간격·글씨 및 올케어 색상만 수정: 나머지 POP 구성 유지 */
+    .subscription-pop .sub-store{gap:0!important;justify-content:center!important;font-size:clamp(14px,1.7vw,20px)!important;padding:1% 0!important}
+    .subscription-pop .sub-store strong{margin-left:5px!important;font-size:1em!important;padding:1% 2.5%!important}
+    .subscription-pop .sub-allcare,.subscription-pop .sub-allcare b,.subscription-pop .sub-allcare span{color:#07183a!important}
+    @media print{
+      .subscription-pop .sub-store{gap:0!important;font-size:13pt!important;padding:1% 0!important}
+      .subscription-pop .sub-store strong{margin-left:2mm!important;font-size:13pt!important;padding:1% 2.5%!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
