@@ -282,6 +282,24 @@
       }
     }
 
+    /* 구독혜택 이하 안내 문구 가독성: 크기/간격 유지하고 굵기만 강화 */
+    .subscription-pop .sub-benefits .sub-care-title,
+    .subscription-pop .sub-benefits .sub-allcare,
+    .subscription-pop .sub-benefits .sub-allcare span,
+    .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare),
+    .subscription-pop .sub-notes,
+    .subscription-pop .sub-notes div{font-weight:750!important}
+    .subscription-pop .sub-benefits b,
+    .subscription-pop .sub-benefits .sub-allcare b{font-weight:950!important}
+    @media print{
+      .subscription-pop .sub-benefits .sub-care-title,
+      .subscription-pop .sub-benefits .sub-allcare,
+      .subscription-pop .sub-benefits .sub-allcare span,
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare),
+      .subscription-pop .sub-notes,
+      .subscription-pop .sub-notes div{font-weight:750!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
