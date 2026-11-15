@@ -95,7 +95,7 @@
               <div id="dynamic-work-gauge" class="bg-emerald-500 h-full rounded-full transition-all duration-700" style="width: 0%;"></div>
             </div>
             <div class="text-[9px] sm:text-[10px] text-stone-500 mt-1 flex justify-between">
-              <span id="dynamic-work-sub1">영업시간 10:00~20:30</span>
+              <span id="dynamic-work-sub1">영업시간 10:00~20:00</span>
               <span id="dynamic-work-sub2" class="font-bold text-emerald-600">스케줄 동기화</span>
             </div>
           </div>
@@ -1228,7 +1228,7 @@
       renderTodayStaff(now);
 
       // A. 오늘의 근무 상태 & 근무율 게이지 계산
-      // 영업시간: 10:00(오전 10시) ~ 20:30(오후 8시 30분) = 630분
+      // 영업시간: 10:00(오전 10시) ~ 20:00(오후 8시 30분) = 600분
       const todayType = parkScheduleDB[date] || "출근";
       const statusEmoji = document.getElementById('dynamic-status-emoji');
       const workBadge = document.getElementById('dynamic-work-badge');
@@ -1239,7 +1239,7 @@
 
       const currentMinutesToday = hours * 60 + now.getMinutes();
       const workStart = 10 * 60; // 10:00
-      const workEnd = 20 * 60 + 30; // 20:30
+      const workEnd = 20 * 60; // 20:00
 
       if (todayType === "휴무" || todayType === "휴가" || todayType === "연차") {
         statusEmoji.innerText = "🏖️";
@@ -1273,18 +1273,18 @@
           workSub1.innerText = `오픈 대기 (10:00 출근)`;
           workSub2.innerText = `화이팅!`;
         } else {
-          // 근무 중 (10:00 ~ 20:30)
+          // 근무 중 (10:00 ~ 20:00)
           const passed = currentMinutesToday - workStart;
           const total = workEnd - workStart;
           const percent = Math.min(100, Math.max(5, Math.round((passed / total) * 100)));
           statusEmoji.innerText = "🔥";
           workBadge.innerText = `열정 근무 중 (${percent}%) · ${timeStr}`;
           workBadge.className = "text-[11px] sm:text-xs font-bold text-blue-800 bg-blue-100 px-2 py-0.5 rounded-full";
-          workText.innerText = `고객 상담 및 매장 세일즈 진행 중 (마감 20:30까지 화이팅)`;
+          workText.innerText = `고객 상담 및 매장 세일즈 진행 중 (마감 20:00까지 화이팅)`;
           workGauge.style.width = `${percent}%`;
           workGauge.className = "bg-blue-600 h-full rounded-full";
           workSub1.innerText = `근무 진행 ${percent}%`;
-          workSub2.innerText = `20:30 마감 예정`;
+          workSub2.innerText = `20:00 마감 예정`;
         }
       }
 
