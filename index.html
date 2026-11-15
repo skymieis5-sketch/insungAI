@@ -255,6 +255,33 @@
       }
     }
 
+    /* 혜택 3행 여백 압축: 박스 높이 축소, 행 간격 일정하게 */
+    @media print{
+      .subscription-pop .sub-details{
+        grid-template-rows:23mm 33mm 48mm 10mm!important;
+        align-content:space-between!important;
+        gap:1.5mm!important;
+      }
+      .subscription-pop .sub-benefits{
+        grid-template-rows:8mm 7mm repeat(3,11mm)!important;
+        align-content:center!important;
+        justify-content:stretch!important;
+        padding:1mm 3mm!important;
+        gap:0!important;
+      }
+      .subscription-pop .sub-benefits>div{
+        min-height:0!important;
+        padding:0.5mm 0!important;
+        margin:0!important;
+        line-height:1.2!important;
+      }
+      .subscription-pop .sub-benefits .sub-allcare,
+      .subscription-pop .sub-benefits .sub-allcare span,
+      .subscription-pop .sub-benefits .sub-allcare b{
+        line-height:1.2!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
