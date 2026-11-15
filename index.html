@@ -179,41 +179,25 @@
       </div>
     </div>
 
-    <!-- 3. TODAY BRIEFING -->
-    <div class="bg-stone-950 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-sm space-y-3">
-      <div class="flex items-center justify-between gap-2">
-        <div>
-          <div class="text-[11px] sm:text-xs font-bold tracking-wider text-sky-400">
-            인수인계사항 · 오늘의 전달 내용
-          </div>
-          <div class="text-sm sm:text-base font-bold mt-0.5">
-            긴급 <span id="briefing-urgent-count" class="text-red-400 font-extrabold">3건</span> · 
-            물류 <span id="briefing-logistics-count" class="text-amber-400 font-extrabold">0건</span> · 
-            사은품 <span id="briefing-gift-count" class="text-sky-400 font-extrabold">1건</span>
-          </div>
-        </div>
-        <button onclick="openVipBriefingModal()" class="bg-[#9E1B42] hover:bg-[#831636] text-white text-xs font-extrabold px-3 py-2 rounded-xl flex items-center gap-1 transition shadow-sm active:scale-95 flex-shrink-0">
-          인수인계 관리 →
-        </button>
+    <!-- 5. STEP 02: 매장 POP 출력 & 조건표 -->
+    <div class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-sm space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs sm:text-sm font-extrabold text-stone-800 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span> 구독 가격표 · POP 출력 센터
+        </h3>
+        <span class="text-[11px] text-stone-500">A4 세로 · 2-UP 인쇄</span>
       </div>
 
-      <div class="pt-2.5 border-t border-stone-800/90 space-y-2">
-        <div id="briefing-items-container" class="space-y-1.5 max-h-44 overflow-y-auto pr-1"></div>
-
-        <div class="flex gap-1.5 pt-1">
-          <select id="quick-todo-category" class="bg-stone-900 border border-stone-800 text-[11px] px-2 py-1.5 rounded-xl font-bold text-stone-300 focus:outline-none">
-            <option value="urgent">긴급</option>
-            <option value="logistics">물류</option>
-            <option value="gift">사은품</option>
-          </select>
-          <input type="text" id="quick-todo-input" placeholder="+ 인수인계 내용 입력 후 Enter" 
-                 class="flex-1 bg-stone-900 border border-stone-800 text-xs px-2.5 py-1.5 rounded-xl text-stone-100 placeholder-stone-500 focus:outline-none focus:border-purple-500 min-w-0"
-                 onkeypress="if(event.key === 'Enter') addQuickTodo()">
-          <button onclick="addQuickTodo()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-3 py-1.5 rounded-xl text-xs whitespace-nowrap transition shadow-sm">
-            등록
-          </button>
+      <button type="button" onclick="openModal('pop-modal')" style="display:flex;width:100%;min-height:240px;grid-column:1/-1" class="col-span-full w-full min-h-[220px] sm:min-h-[260px] p-7 sm:p-10 rounded-2xl border-2 border-purple-500 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-left shadow-lg transition active:scale-[0.99] items-center justify-between gap-5">
+        <div class="flex items-center gap-4 sm:gap-5 min-w-0">
+          <span class="text-5xl sm:text-6xl flex-shrink-0" aria-hidden="true">📊</span>
+          <div class="min-w-0">
+            <div class="font-black text-2xl sm:text-3xl leading-tight">구독 가격표 · POP 출력</div>
+            <div class="text-xs sm:text-sm text-purple-100 mt-2">엑셀 업로드 → 가격 확인 → A4 세로 2-UP 인쇄</div>
+          </div>
         </div>
-      </div>
+        <span class="text-3xl sm:text-4xl font-light flex-shrink-0" aria-hidden="true">›</span>
+      </button>
     </div>
 
     <!-- 4. STEP 01: 맞춤 견적 & 카드 혜택 설계 -->
@@ -249,25 +233,41 @@
       </div>
     </div>
 
-    <!-- 5. STEP 02: 매장 POP 출력 & 조건표 -->
-    <div class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-sm space-y-3">
-      <div class="flex items-center justify-between">
-        <h3 class="text-xs sm:text-sm font-extrabold text-stone-800 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-amber-500"></span> 구독 가격표 · POP 출력 센터
-        </h3>
-        <span class="text-[11px] text-stone-500">A4 세로 · 2-UP 인쇄</span>
-      </div>
-
-      <button type="button" onclick="openModal('pop-modal')" style="display:flex;width:100%;min-height:240px;grid-column:1/-1" class="col-span-full w-full min-h-[220px] sm:min-h-[260px] p-7 sm:p-10 rounded-2xl border-2 border-purple-500 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-left shadow-lg transition active:scale-[0.99] items-center justify-between gap-5">
-        <div class="flex items-center gap-4 sm:gap-5 min-w-0">
-          <span class="text-5xl sm:text-6xl flex-shrink-0" aria-hidden="true">📊</span>
-          <div class="min-w-0">
-            <div class="font-black text-2xl sm:text-3xl leading-tight">구독 가격표 · POP 출력</div>
-            <div class="text-xs sm:text-sm text-purple-100 mt-2">엑셀 업로드 → 가격 확인 → A4 세로 2-UP 인쇄</div>
+    <!-- 3. TODAY BRIEFING -->
+    <div class="bg-stone-950 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-sm space-y-3">
+      <div class="flex items-center justify-between gap-2">
+        <div>
+          <div class="text-[11px] sm:text-xs font-bold tracking-wider text-sky-400">
+            인수인계사항 · 오늘의 전달 내용
+          </div>
+          <div class="text-sm sm:text-base font-bold mt-0.5">
+            긴급 <span id="briefing-urgent-count" class="text-red-400 font-extrabold">3건</span> · 
+            물류 <span id="briefing-logistics-count" class="text-amber-400 font-extrabold">0건</span> · 
+            사은품 <span id="briefing-gift-count" class="text-sky-400 font-extrabold">1건</span>
           </div>
         </div>
-        <span class="text-3xl sm:text-4xl font-light flex-shrink-0" aria-hidden="true">›</span>
-      </button>
+        <button onclick="openVipBriefingModal()" class="bg-[#9E1B42] hover:bg-[#831636] text-white text-xs font-extrabold px-3 py-2 rounded-xl flex items-center gap-1 transition shadow-sm active:scale-95 flex-shrink-0">
+          인수인계 관리 →
+        </button>
+      </div>
+
+      <div class="pt-2.5 border-t border-stone-800/90 space-y-2">
+        <div id="briefing-items-container" class="space-y-1.5 max-h-44 overflow-y-auto pr-1"></div>
+
+        <div class="flex gap-1.5 pt-1">
+          <select id="quick-todo-category" class="bg-stone-900 border border-stone-800 text-[11px] px-2 py-1.5 rounded-xl font-bold text-stone-300 focus:outline-none">
+            <option value="urgent">긴급</option>
+            <option value="logistics">물류</option>
+            <option value="gift">사은품</option>
+          </select>
+          <input type="text" id="quick-todo-input" placeholder="+ 인수인계 내용 입력 후 Enter" 
+                 class="flex-1 bg-stone-900 border border-stone-800 text-xs px-2.5 py-1.5 rounded-xl text-stone-100 placeholder-stone-500 focus:outline-none focus:border-purple-500 min-w-0"
+                 onkeypress="if(event.key === 'Enter') addQuickTodo()">
+          <button onclick="addQuickTodo()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-3 py-1.5 rounded-xl text-xs whitespace-nowrap transition shadow-sm">
+            등록
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- 6. STEP 03: 안내 가이드 & 조회 -->
