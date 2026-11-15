@@ -134,6 +134,25 @@
       .subscription-pop .sub-allcare{padding:1mm 0!important}
     }
 
+    /* 확정 이미지 기준의 실제 웹 POP 스타일 (최종 우선순위) */
+    .subscription-pop{border:1px solid #cbd5e1!important;border-radius:0!important}
+    .subscription-pop .sub-ribbon{border-radius:12px!important;background:linear-gradient(110deg,#09235d,#0868e6,#0b2b76)!important}
+    .subscription-pop .sub-store{gap:0!important;justify-content:center!important;padding:1% 0!important;font-size:clamp(14px,1.8vw,20px)!important}
+    .subscription-pop .sub-store strong{margin-left:5px!important;padding:1% 3%!important;font-size:1em!important}
+    .subscription-pop .sub-facts span{background:linear-gradient(90deg,#d7efff,#a6d6ff)!important}
+    .subscription-pop .sub-highlight{background:linear-gradient(180deg,#0675ef,#08266e)!important}
+    .subscription-pop .sub-benefits{justify-content:space-evenly!important}
+    .subscription-pop .sub-allcare{background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:#07183a!important;display:block!important}
+    .subscription-pop .sub-allcare b,.subscription-pop .sub-allcare span{color:#07183a!important;font-size:inherit!important}
+    .subscription-pop .sub-benefits>div:not(.sub-care-title):not(.sub-benefit){border-bottom:1px solid #d6e2f4!important}
+    @media print{
+      .subscription-pop .sub-store{font-size:12pt!important;gap:0!important;padding:1% 0!important}
+      .subscription-pop .sub-store strong{font-size:12pt!important;margin-left:1.5mm!important}
+      .subscription-pop .sub-benefits{font-size:10pt!important;gap:1mm!important;padding:2.5mm!important}
+      .subscription-pop .sub-allcare{padding:1mm 0!important;line-height:1.25!important}
+      .subscription-pop .sub-notes{font-size:8pt!important;line-height:1.25!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -2437,7 +2456,7 @@
         '<div class="sub-content">'+
         '<div class="sub-details"><div class="sub-facts"><div><span>구독기간</span><b>'+popSafe(months)+'개월</b></div><div><span>기본 월 구독료</span><b>'+popWon(base)+'</b></div></div>'+
         '<div class="sub-highlight"><div>제휴카드 <em>구독혜택</em></div><strong>월 '+popWon(card)+'</strong></div>'+
-        '<div class="sub-benefits">'+discountLine+'<div class="sub-care-title">구독혜택</div><div class="sub-allcare"><b>기본혜택 · 가전수리올케어</b><span>가전수리올케어 혜택 제공 (세부 보장조건 별도 확인)</span></div>'+benefits+'</div>'+
+        '<div class="sub-benefits">'+discountLine+'<div class="sub-care-title">구독혜택</div><div class="sub-allcare"><b>가전수리올케어</b> <span>혜택 제공 (세부 보장조건 별도 확인)</span></div>'+benefits+'</div>'+
         '<div class="sub-gift">하이마트에서 첫 구독을 특별하게!</div></div></div>'+
         '<footer class="sub-notes"><div>※ 서비스 안내 : '+popSafe(months)+'개월 기준'+(term?' · 행사 '+popSafe(term):'')+'</div>'+
         '<div>※ 제휴카드 조건 : 전월 30만원 이상 사용실적 충족 시 할인 적용</div>'+
