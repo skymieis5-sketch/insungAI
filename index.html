@@ -333,6 +333,42 @@
       .subscription-pop .sub-facts>div>span{background:transparent!important}
     }
 
+    /* 음영 최종 보정: 표 전체에 배경을 입혀 하단 흰 띠 방지 */
+    .subscription-pop .sub-facts{
+      display:grid!important;
+      grid-template-rows:repeat(2,minmax(0,1fr))!important;
+      background:linear-gradient(to right,#c9e5fb 0 43%,#fff 43% 100%)!important;
+      background-repeat:no-repeat!important;
+      padding:0!important;
+      overflow:hidden!important;
+    }
+    .subscription-pop .sub-facts>div{
+      height:100%!important;
+      min-height:0!important;
+      width:100%!important;
+      box-sizing:border-box!important;
+      background:transparent!important;
+      grid-template-columns:43% minmax(0,1fr)!important;
+      grid-template-rows:minmax(0,1fr)!important;
+    }
+    .subscription-pop .sub-facts>div>span,
+    .subscription-pop .sub-facts>div>b{
+      background:transparent!important;
+      background-image:none!important;
+      height:100%!important;
+      padding:0!important;
+      display:flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+    }
+    @media print{
+      .subscription-pop .sub-facts{
+        background:linear-gradient(to right,#c9e5fb 0 43%,#fff 43% 100%)!important;
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
