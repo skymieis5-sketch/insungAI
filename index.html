@@ -309,6 +309,30 @@
       .subscription-pop .sub-facts>div span{background:#c9e5fb!important;background-image:none!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
     }
 
+    /* 인쇄 안정형: 글자 span이 아니라 행 자체의 왼쪽 43%를 음영 처리 */
+    .subscription-pop .sub-facts>div{
+      background:linear-gradient(to right,#c9e5fb 0%,#c9e5fb 43%,#fff 43%,#fff 100%)!important;
+      background-repeat:no-repeat!important;
+      grid-template-columns:43% minmax(0,1fr)!important;
+      grid-template-rows:minmax(0,1fr)!important;
+    }
+    .subscription-pop .sub-facts>div>span,
+    .subscription-pop .sub-facts>div>b{
+      background:transparent!important;
+      background-image:none!important;
+      height:auto!important;
+      min-height:0!important;
+      align-self:stretch!important;
+    }
+    @media print{
+      .subscription-pop .sub-facts>div{
+        background:linear-gradient(to right,#c9e5fb 0%,#c9e5fb 43%,#fff 43%,#fff 100%)!important;
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+      }
+      .subscription-pop .sub-facts>div>span{background:transparent!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
