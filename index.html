@@ -405,6 +405,23 @@
       }
     }
 
+    /* 하단 3줄 안내문만 확대: 기존 배치/상단 디자인 보존 */
+    .subscription-pop .sub-notes,
+    .subscription-pop .sub-notes>div{
+      font-size:clamp(11px,1.15vw,15px)!important;
+      font-weight:850!important;
+      line-height:1.35!important;
+    }
+    @media print{
+      .subscription-pop .sub-notes,
+      .subscription-pop .sub-notes>div{
+        font-size:12pt!important;
+        font-weight:850!important;
+        line-height:1.3!important;
+      }
+      .subscription-pop .sub-notes{margin-top:2mm!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
