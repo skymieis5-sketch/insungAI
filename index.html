@@ -197,6 +197,19 @@
       .subscription-pop .sub-notes{font-size:9pt!important;line-height:1.25!important;margin-top:1mm!important;align-self:end!important}
     }
 
+    /* 인쇄 판독성 개선: 혜택 텍스트를 더 크게, 빈 공간 없이 분배 */
+    @media print{
+      .subscription-pop .sub-details{grid-template-rows:23mm 33mm minmax(0,1fr) 10mm!important;gap:2mm!important}
+      .subscription-pop .sub-benefits{font-size:13pt!important;line-height:1.18!important;padding:2mm 3mm!important;grid-template-rows:8mm 8mm repeat(3,minmax(0,1fr))!important}
+      .subscription-pop .sub-benefits>div{font-size:13pt!important;line-height:1.18!important;align-items:center!important;padding:1mm 0!important}
+      .subscription-pop .sub-benefits .sub-benefit{font-size:13pt!important}
+      .subscription-pop .sub-benefits .sub-care-title{font-size:13pt!important}
+      .subscription-pop .sub-benefits .sub-allcare{font-size:12.5pt!important;flex-wrap:wrap!important;gap:1mm!important}
+      .subscription-pop .sub-benefits .sub-allcare span{font-size:12.5pt!important}
+      .subscription-pop .sub-benefits>div b{font-size:13pt!important}
+      .subscription-pop .sub-notes{font-size:9.5pt!important;line-height:1.25!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
