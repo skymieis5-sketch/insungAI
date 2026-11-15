@@ -1383,8 +1383,12 @@
           if (!match) return;
           const first = Number(match[1]), last = match[2] ? Number(match[2]) : first;
           if (day < first || day > last) return;
-          const code = match[3] || '';
-          if (/반차|반반|5시/.test(code)) isPartial = true;
+          const code = (match[3] || '').trim().toUpperCase();
+          // A=연차, V=휴가: 근무 인원에서 제외
+          // 5시=17:00 퇴근: 출근 인원에 포함, 조기퇴근 표시
+          // 반차/반반차: 출근 인원에 포함, 부분근무 표시
+          if (code === '5시' || /반차|반반|^B$|^BB$/.test(code)) isPartial = true;
+          else if (code === '' || /^(A|V)$|연차|휴가|휴무|^OFF$/.test(code)) isOff = true;
           else isOff = true;
         });
         if (!isOff) { working.push(name); if (isPartial) partial.push(name); }
@@ -1394,7 +1398,7 @@
       }
       countEl.textContent = working.length + '명';
       namesEl.textContent = working.length ? working.join(' · ') : '오늘 출근 예정자 없음';
-      noteEl.textContent = '2026년 11월 휴무표 기준' + (partial.length ? ' · 부분근무: ' + partial.join(', ') : '');
+      noteEl.textContent = '2026년 11월 휴무표 기준 (A 연차 · V 휴가 · 5시 조기퇴근)' + (partial.length ? ' · 부분근무/17시 퇴근: ' + partial.join(', ') : '');
     }
 
     function renderWeeklyStrip(now) {
