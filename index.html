@@ -369,6 +369,17 @@
       }
     }
 
+    /* 최종 미세조정: 구독료 표와 제휴카드 가격 사이만 5mm 압축 */
+    @media print{
+      .subscription-pop .sub-details{
+        grid-template-rows:23mm 33mm 48mm 10mm!important;
+        align-content:start!important;
+        row-gap:1.5mm!important;
+      }
+      .subscription-pop .sub-facts{margin-bottom:0!important}
+      .subscription-pop .sub-highlight{margin-top:0!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
