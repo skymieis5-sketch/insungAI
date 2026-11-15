@@ -71,21 +71,16 @@
     <div class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-sm space-y-3 sm:space-y-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         
-        <!-- 실시간 휴무 알림 카드 -->
+        <!-- 금일 근무자 현황: 11월 휴무표 기준 -->
         <div class="flex items-center gap-3 sm:gap-4 bg-stone-50/70 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-stone-200/60">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-4 border-amber-400 flex flex-col items-center justify-center bg-white shadow-sm flex-shrink-0">
-            <span class="text-[8px] sm:text-[9px] font-bold text-amber-600 -mb-0.5 sm:-mb-1">NEXT OFF</span>
-            <span id="dynamic-next-dday" class="text-xs sm:text-sm font-extrabold text-stone-800">D-1</span>
+          <div class="w-14 h-14 rounded-full border-4 border-blue-400 flex flex-col items-center justify-center bg-white shadow-sm flex-shrink-0">
+            <span class="text-[9px] font-bold text-blue-700">근무</span>
+            <span id="today-staff-count" class="text-lg font-extrabold text-stone-800">—</span>
           </div>
-          <div>
-            <div class="text-[10px] sm:text-[11px] text-amber-800 font-bold flex items-center gap-1">
-              <span>상록수 하이마트 박인성 부점장</span>
-              <span class="px-1.5 py-0.2 rounded bg-amber-100 text-amber-900 text-[9px]" id="today-fulldate-badge">오늘 날짜 계산중...</span>
-            </div>
-            <div id="dynamic-off-notice" class="text-sm sm:text-base font-bold text-stone-900 mt-0.5">휴무 일정을 조회 중입니다...</div>
-            <div class="text-[11px] sm:text-xs text-stone-500 mt-0.5">
-              <span id="dynamic-vacation-notice">🔥 휴무 계획 불러오는 중</span> · <button onclick="openModal('schedule-modal')" class="text-purple-600 font-bold underline">전체 휴무표 보기 ›</button>
-            </div>
+          <div class="min-w-0 flex-1">
+            <div class="text-[11px] font-bold text-blue-800">상록수점 금일 근무자 <span id="today-fulldate-badge" class="ml-1 text-stone-500">날짜 확인 중</span></div>
+            <div id="today-staff-names" class="text-xs sm:text-sm font-extrabold text-stone-900 mt-1 leading-relaxed">휴무표 조회 중...</div>
+            <div class="text-[11px] text-stone-500 mt-1"><span id="today-staff-note">11월 휴무표 기준</span> · <button onclick="openModal('schedule-modal')" class="text-purple-600 font-bold underline">전체 휴무표 보기 ›</button></div>
           </div>
         </div>
 
@@ -1241,6 +1236,9 @@
       const modalTodayPill = document.getElementById('modal-today-pill');
       if (modalTodayPill) modalTodayPill.innerText = `오늘: ${month}월 ${date}일(${dayName})`;
 
+      // 2026년 11월 전체 직원 휴무표에서 금일 출근자 계산
+      renderTodayStaff(now);
+
       // A. 오늘의 근무 상태 & 근무율 게이지 계산
       // 영업시간: 10:00(오전 10시) ~ 20:30(오후 8시 30분) = 630분
       const todayType = parkScheduleDB[date] || "출근";
@@ -1357,6 +1355,46 @@
 
       // C. 주간 7일 스케줄 실시간 렌더링 (오늘을 기준으로 7일 자동 생성)
       renderWeeklyStrip(now);
+    }
+
+    function renderTodayStaff(now) {
+      const countEl = document.getElementById('today-staff-count');
+      const namesEl = document.getElementById('today-staff-names');
+      const noteEl = document.getElementById('today-staff-note');
+      if (!countEl || !namesEl || !noteEl) return;
+      if (now.getFullYear() !== 2026 || now.getMonth() !== 10) {
+        countEl.textContent = '—';
+        namesEl.textContent = '해당 월의 근무표가 등록되지 않았습니다.';
+        noteEl.textContent = '2026년 11월 휴무표만 등록됨';
+        return;
+      }
+      const rows = document.querySelectorAll('#schedule-modal tbody tr');
+      const day = now.getDate();
+      const working = [];
+      const partial = [];
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        if (cells.length < 4) return;
+        const name = cells[1].textContent.trim().replace(/\s*\(본인\)/, '');
+        const schedule = cells[3].textContent.trim();
+        let isOff = false, isPartial = false;
+        schedule.split(',').forEach(part => {
+          const match = part.trim().match(/^(\d{1,2})(?:\s*[~\-]\s*(\d{1,2}))?\s*(?:\(([^)]*)\))?/);
+          if (!match) return;
+          const first = Number(match[1]), last = match[2] ? Number(match[2]) : first;
+          if (day < first || day > last) return;
+          const code = match[3] || '';
+          if (/반차|반반|5시/.test(code)) isPartial = true;
+          else isOff = true;
+        });
+        if (!isOff) { working.push(name); if (isPartial) partial.push(name); }
+      });
+      if (!working.length && !rows.length) {
+        countEl.textContent = '—'; namesEl.textContent = '휴무표 데이터를 확인할 수 없습니다.'; return;
+      }
+      countEl.textContent = working.length + '명';
+      namesEl.textContent = working.length ? working.join(' · ') : '오늘 출근 예정자 없음';
+      noteEl.textContent = '2026년 11월 휴무표 기준' + (partial.length ? ' · 부분근무: ' + partial.join(', ') : '');
     }
 
     function renderWeeklyStrip(now) {
