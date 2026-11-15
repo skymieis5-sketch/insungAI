@@ -1368,6 +1368,13 @@
         noteEl.textContent = '2026년 11월 휴무표만 등록됨';
         return;
       }
+      // 11/15 실제 근무 확정 명단: 휴무표 원본과 불일치했던 일자를 우선 적용
+      if (now.getDate() === 15) {
+        countEl.textContent = '6명';
+        namesEl.textContent = '박인성 · 정순형 · 전상웅 · 문혜영 · 윤정후 · 박민우';
+        noteEl.textContent = '11/15 확인된 실제 근무자 · 박민우 17시 퇴근 · 근무표 v2';
+        return;
+      }
       const rows = document.querySelectorAll('#schedule-modal tbody tr');
       const day = now.getDate();
       const working = [];
