@@ -466,6 +466,35 @@
       .subscription-pop .sub-benefits .sub-allcare{column-gap:1mm!important}
     }
 
+    /* 구독혜택 영역 확대: 월 할인부터 세 가지 케어까지 한 단계 크게 */
+    @media print{
+      .subscription-pop .sub-details{
+        grid-template-rows:23mm 33mm 57mm 10mm!important;
+        row-gap:1.5mm!important;
+      }
+      .subscription-pop .sub-benefits{
+        grid-template-rows:12mm 8mm repeat(3,12mm)!important;
+        align-content:center!important;
+        padding:1mm 3mm!important;
+      }
+      .subscription-pop .sub-benefits .sub-benefit,
+      .subscription-pop .sub-benefits .sub-benefit span,
+      .subscription-pop .sub-benefits .sub-benefit b{
+        font-size:15pt!important;
+      }
+      .subscription-pop .sub-benefits .sub-care-title{
+        font-size:13pt!important;
+      }
+      .subscription-pop .sub-benefits .sub-allcare,
+      .subscription-pop .sub-benefits .sub-allcare b,
+      .subscription-pop .sub-benefits .sub-allcare span,
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare),
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare) b{
+        font-size:12pt!important;
+        line-height:1.2!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
