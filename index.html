@@ -123,6 +123,18 @@
       .sub-notes{font-size:8pt!important;line-height:1.3!important;margin-top:2mm!important}
     }
 
+    /* 가전수리올케어를 다른 혜택과 동일한 일반 텍스트 행으로 통일 */
+    .sub-allcare{display:block!important;background:transparent!important;border:0!important;border-radius:0!important;color:inherit!important;box-shadow:none!important}
+    .sub-allcare b{color:inherit!important}
+    /* LOTTE HIMART 와 상록수점 사이 간격 축소 및 글씨 확대 */
+    .sub-store{justify-content:center!important;gap:2%!important;font-size:clamp(13px,1.8vw,21px)!important;padding:1.5% 0!important}
+    .sub-store strong{font-size:1em!important;padding:1% 3%!important}
+    @media print{
+      .sub-store{font-size:13pt!important;gap:2%!important;padding:1% 0!important}
+      .sub-store strong{font-size:12pt!important;padding:1% 3%!important}
+      .sub-allcare{padding:1mm 0!important;font-size:inherit!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -2426,7 +2438,7 @@
         '<div class="sub-content">'+
         '<div class="sub-details"><div class="sub-facts"><div><span>구독기간</span><b>'+popSafe(months)+'개월</b></div><div><span>기본 월 구독료</span><b>'+popWon(base)+'</b></div></div>'+
         '<div class="sub-highlight"><div>제휴카드 <em>구독혜택</em></div><strong>월 '+popWon(card)+'</strong></div>'+
-        '<div class="sub-benefits">'+discountLine+'<div class="sub-care-title">구독혜택</div><div class="sub-allcare"><b>기본혜택 · 가전수리올케어</b><span>가전수리올케어 혜택 제공 (세부 보장조건 별도 확인)</span></div>'+benefits+'</div>'+
+        '<div class="sub-benefits">'+discountLine+'<div class="sub-care-title">구독혜택</div><div class="sub-allcare"><b>가전수리올케어</b> 가전수리올케어 혜택 제공 (세부 보장조건 별도 확인)</div>'+benefits+'</div>'+
         '<div class="sub-gift">하이마트에서 첫 구독을 특별하게!</div></div></div>'+
         '<footer class="sub-notes"><div>※ 서비스 안내 : '+popSafe(months)+'개월 기준'+(term?' · 행사 '+popSafe(term):'')+'</div>'+
         '<div>※ 제휴카드 조건 : 전월 30만원 이상 사용실적 충족 시 할인 적용</div>'+
