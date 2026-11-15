@@ -300,6 +300,15 @@
       .subscription-pop .sub-notes div{font-weight:750!important}
     }
 
+    /* 구독기간/월 구독료: 두 행의 음영을 균일한 단색으로 통일 */
+    .subscription-pop .sub-facts{background:#fff!important;overflow:hidden!important}
+    .subscription-pop .sub-facts>div{display:grid!important;grid-template-columns:43% 57%!important;align-items:stretch!important;min-height:0!important}
+    .subscription-pop .sub-facts>div span{display:flex!important;align-items:center!important;justify-content:center!important;align-self:stretch!important;box-sizing:border-box!important;width:100%!important;height:100%!important;margin:0!important;background:#c9e5fb!important;background-image:none!important;border-radius:0!important}
+    .subscription-pop .sub-facts>div b{display:flex!important;align-items:center!important;justify-content:center!important;align-self:stretch!important;margin:0!important;background:#fff!important}
+    @media print{
+      .subscription-pop .sub-facts>div span{background:#c9e5fb!important;background-image:none!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
