@@ -210,6 +210,19 @@
       .subscription-pop .sub-notes{font-size:9.5pt!important;line-height:1.25!important}
     }
 
+    /* 좁아진 출력 박스 복구: 모든 그리드 하위 영역을 용지 너비로 강제 확장 */
+    .subscription-pop{grid-template-columns:minmax(0,1fr)!important}
+    .subscription-pop .sub-top,.subscription-pop .sub-title,.subscription-pop .sub-model,.subscription-pop .sub-content,.subscription-pop .sub-notes{justify-self:stretch!important;min-width:0!important}
+    .subscription-pop .sub-content,.subscription-pop .sub-details,.subscription-pop .sub-facts,.subscription-pop .sub-highlight,.subscription-pop .sub-benefits,.subscription-pop .sub-gift{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;justify-self:stretch!important}
+    .subscription-pop .sub-benefits .sub-allcare{flex-wrap:nowrap!important;justify-content:flex-start!important;gap:5px!important}
+    .subscription-pop .sub-benefits .sub-allcare b,.subscription-pop .sub-benefits .sub-allcare span{white-space:normal!important}
+    @media print{
+      .subscription-pop{grid-template-columns:minmax(0,1fr)!important}
+      .subscription-pop .sub-content,.subscription-pop .sub-details,.subscription-pop .sub-facts,.subscription-pop .sub-highlight,.subscription-pop .sub-benefits,.subscription-pop .sub-gift{width:100%!important;max-width:100%!important}
+      .subscription-pop .sub-benefits .sub-allcare{flex-wrap:nowrap!important;gap:2mm!important;font-size:11pt!important}
+      .subscription-pop .sub-benefits .sub-allcare span{font-size:11pt!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
