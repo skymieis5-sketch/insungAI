@@ -234,6 +234,27 @@
       .subscription-pop .sub-notes{font-size:10pt!important;line-height:1.25!important}
     }
 
+    /* 구독혜택 3개 행의 글씨 크기/두께를 동일하게 통일 */
+    .subscription-pop .sub-benefits .sub-allcare,
+    .subscription-pop .sub-benefits .sub-allcare b,
+    .subscription-pop .sub-benefits .sub-allcare span,
+    .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare),
+    .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare) b{
+      font-size:12px!important;line-height:1.35!important;letter-spacing:0!important;
+    }
+    .subscription-pop .sub-benefits .sub-allcare b,
+    .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare) b{font-weight:900!important}
+    .subscription-pop .sub-benefits .sub-allcare{justify-content:flex-start!important;text-align:left!important}
+    @media print{
+      .subscription-pop .sub-benefits .sub-allcare,
+      .subscription-pop .sub-benefits .sub-allcare b,
+      .subscription-pop .sub-benefits .sub-allcare span,
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare),
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare) b{
+        font-size:11pt!important;line-height:1.25!important;letter-spacing:0!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
