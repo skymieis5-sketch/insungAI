@@ -506,6 +506,15 @@
       .subscription-pop .sub-event-period{font-size:10pt!important;line-height:1.1!important}
     }
 
+    /* 행사기간: 매장명 아래가 아닌 오른쪽 측면에 배치 */
+    .subscription-pop .sub-store-line{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;min-height:0!important}
+    .subscription-pop .sub-store-line .sub-store{flex:0 1 auto!important;min-width:0!important}
+    .subscription-pop .sub-store-line .sub-event-period{position:absolute!important;right:0!important;top:50%!important;transform:translateY(-50%)!important;margin:0!important;text-align:right!important;max-width:31%!important;font-size:clamp(8px,.9vw,11px)!important;line-height:1.15!important}
+    @media print{
+      .subscription-pop{grid-template-rows:20mm 14mm 10mm auto auto!important}
+      .subscription-pop .sub-store-line .sub-event-period{font-size:8pt!important;max-width:31%!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -2804,7 +2813,7 @@
       const discountLine=discount!==''?'<div class="sub-benefit"><span>제휴카드 월 할인</span><b>'+popWon(discount)+'</b></div>':'';
       const benefits=[care?'<div><b>안심케어</b> '+popSafe(care)+'</div>':'',regular?'<div><b>정기케어</b> '+popSafe(regular)+'</div>':''].filter(Boolean).join('');
       return '<article class="subscription-pop">'+
-        '<header class="sub-top"><div class="sub-ribbon">가전 구독 <em>특별행사</em></div><div class="sub-store">LOTTE HIMART <strong>상록수점</strong></div>'+(term?'<div class="sub-event-period">행사기간 : '+popSafe(term)+'</div>':'')+'</header>'+
+        '<header class="sub-top"><div class="sub-ribbon">가전 구독 <em>특별행사</em></div><div class="sub-store-line"><div class="sub-store">LOTTE HIMART <strong>상록수점</strong></div>'+(term?'<div class="sub-event-period">행사기간 : '+popSafe(term)+'</div>':'')+'</div></header>'+
         '<div class="sub-title">'+popSafe(name||'가전 구독')+'</div><div class="sub-model">'+popSafe(model)+'</div>'+
         '<div class="sub-content">'+
         '<div class="sub-details"><div class="sub-facts"><div><span>구독기간</span><b>'+popSafe(months)+'개월</b></div><div><span>기본 월 구독료</span><b>'+popWon(base)+'</b></div></div>'+
