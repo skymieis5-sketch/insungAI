@@ -998,47 +998,37 @@
 
 /* A4 2분할 인쇄 안정화: 검증된 기본 POP v2 크기와 배치로 복원 */
 
-/* 2026-11-16: 참고 시안 비율 재설계 — A4 가로 2분할 고정, 내부 10개 영역 균등 제어 */
-.pop-v2.subscription-pop{
- grid-template-rows:7% 9% 5.5% 15.5% 7% 10% 12% 13.5% 13% 7.5%!important;
- padding:2.1%!important;gap:0!important;align-content:stretch!important
-}
-.pop-v2 .v2-store{gap:2%!important;font-size:clamp(16px,1.65vw,25px)!important;letter-spacing:-.05em!important}
-.pop-v2 .v2-ribbon{display:flex!important;justify-content:center!important;align-items:center!important;gap:0!important;padding:0 2%!important;background:linear-gradient(105deg,#061443,#142e79,#061443)!important;border-radius:12px 12px 3px 3px!important;font-size:clamp(21px,2.4vw,34px)!important;letter-spacing:0!important}
-.pop-v2 .v2-ribbon-title{font-weight:1000!important;white-space:nowrap!important;letter-spacing:-.06em!important;word-spacing:0!important}
-.pop-v2 .v2-ribbon-title em{margin-left:.14em!important;color:#fff000!important;font-style:italic!important}
-.pop-v2 .v2-event{gap:0!important;font-size:clamp(11px,1.15vw,16px)!important}
-.pop-v2 .v2-product{grid-template-columns:23% 77%!important;align-items:center!important}
-.pop-v2 .v2-recommend{width:90%!important;aspect-ratio:1!important;font-size:clamp(14px,1.5vw,21px)!important}
-.pop-v2 .v2-name{font-size:clamp(24px,2.65vw,38px)!important;letter-spacing:-.07em!important}
-.pop-v2 .v2-model{font-size:clamp(12px,1.4vw,20px)!important}
-.pop-v2 .v2-duration{display:flex!important;align-items:center!important;justify-content:center!important;gap:7%!important}
-.pop-v2 .v2-duration>b{width:39%!important;flex:none!important;text-align:center!important}
-.pop-v2 .v2-duration>strong{flex:none!important;white-space:nowrap!important;font-size:clamp(23px,2.55vw,36px)!important}
-.pop-v2 .v2-facts{gap:1.5%!important}
-.pop-v2 .v2-facts>div{font-size:clamp(13px,1.42vw,20px)!important}
-.pop-v2 .v2-price{display:grid!important;grid-template-columns:31% 11% 58%!important;align-items:center!important;gap:0!important;padding:1.5% 2%!important;background:linear-gradient(#f10a0a,#b90000)!important}
-.pop-v2 .v2-price>b{font-size:clamp(13px,1.6vw,23px)!important;line-height:1.02!important}
-.pop-v2 .v2-price>span{justify-self:center!important;font-size:clamp(15px,1.8vw,25px)!important}
-.pop-v2 .v2-price>strong{justify-self:center!important;white-space:nowrap!important;font-size:clamp(27px,3.1vw,45px)!important;letter-spacing:-.065em!important}
-.pop-v2 .v2-benefits{grid-template-columns:25% 75%!important;min-width:0!important}
-.pop-v2 .v2-benefit-lines{min-width:0!important;padding:0 1%!important}
-.pop-v2 .v2-benefit{font-size:clamp(10px,1.14vw,16px)!important;letter-spacing:-.065em!important;white-space:nowrap!important;line-height:1.05!important}
-.pop-v2 .v2-totals{display:grid!important;grid-template-columns:27% 27% 44%!important;gap:1%!important;padding-top:1%!important;align-items:stretch!important}
-.pop-v2 .v2-total-box{display:grid!important;grid-template-rows:38% 62%!important;min-width:0!important;border-radius:10px!important;overflow:hidden!important;background:#fff!important}
-.pop-v2 .v2-total-box>b{display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;line-height:1!important;font-size:clamp(11px,1.1vw,16px)!important}
-.pop-v2 .v2-total-box>strong{display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;line-height:1!important;font-size:clamp(13px,1.45vw,21px)!important;letter-spacing:-.065em!important;white-space:nowrap!important}
-.pop-v2 .v2-savings>b{background:#ffe500!important;color:#080808!important}
-.pop-v2 .v2-savings>strong{color:#d00000!important}
-.pop-v2 .v2-final{display:grid!important;grid-template-rows:40% 60%!important;gap:0!important;background:linear-gradient(#f00808,#bd0000)!important;border:2px solid #bd0000!important;box-shadow:none!important;position:relative!important;overflow:visible!important}
-.pop-v2 .v2-final>b{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:0!important;background:transparent!important;color:#fff!important;font-size:clamp(12px,1.25vw,18px)!important;line-height:1!important}
-.pop-v2 .v2-final>strong{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:0!important;background:transparent!important;color:#fff000!important;font-size:clamp(21px,2.35vw,34px)!important;line-height:1!important;text-shadow:none!important;letter-spacing:-.075em!important}
-.pop-v2 .v2-final::before{content:"♛"!important;position:absolute!important;top:-.72em!important;left:50%!important;transform:translateX(-50%)!important;color:#ffda00!important;font-size:clamp(16px,1.6vw,23px)!important;line-height:1!important}
-.pop-v2 .v2-condition{padding-top:0!important;gap:1%!important;font-size:clamp(11px,1.15vw,16px)!important}
+/* 참고 시안 정합: A4 2-up, 제목 및 3칸 금액 카드의 박스모델 확정 */
+.subscription-pop.pop-v2{grid-template-rows:7% 9% 5.5% 15.5% 7% 10% 12% 13.5% 13% 7.5%!important;gap:0!important;padding:2.1%!important}
+.pop-v2 .v2-store{gap:2%!important;letter-spacing:-.04em!important}
+.pop-v2 .v2-ribbon{display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;background:linear-gradient(105deg,#071443,#1b3981,#071443)!important;border-radius:11px 11px 3px 3px!important}
+.pop-v2 .v2-ribbon-title{font-weight:1000!important;letter-spacing:-.045em!important;white-space:nowrap!important;color:#fff!important}
+.pop-v2 .v2-ribbon-title em{font-style:italic!important;color:#fff000!important;margin-left:.14em!important}
+.pop-v2 .v2-product{grid-template-columns:23% 77%!important}
+.pop-v2 .v2-recommend{width:90%!important}
+.pop-v2 .v2-duration{justify-content:center!important;gap:7%!important}
+.pop-v2 .v2-duration>b{width:39%!important;text-align:center!important}
+.pop-v2 .v2-facts{gap:2px!important}
+.pop-v2 .v2-price{display:grid!important;grid-template-columns:31% 11% 58%!important;gap:0!important;align-items:center!important;padding:1.5% 2%!important}
+.pop-v2 .v2-price>strong{justify-self:center!important;letter-spacing:-.06em!important}
+.pop-v2 .v2-benefits{grid-template-columns:25% 75%!important}
+.pop-v2 .v2-benefit-lines{padding:0 1%!important}
+.pop-v2 .v2-benefit{letter-spacing:-.055em!important;white-space:nowrap!important}
+.pop-v2 .v2-totals{display:flex!important;flex-direction:row!important;align-items:stretch!important;justify-content:space-between!important;gap:1.2%!important;padding:1.5% 0 0!important;min-width:0!important;width:100%!important;box-sizing:border-box!important}
+.pop-v2 .v2-total-box{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:stretch!important;flex:0 0 25%!important;width:25%!important;min-width:0!important;min-height:0!important;border:1.5px solid #0b2d75!important;border-radius:10px!important;overflow:hidden!important;background:#fff!important;box-shadow:none!important;text-align:center!important}
+.pop-v2 .v2-total-box>b{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 42%!important;width:100%!important;height:42%!important;min-height:0!important;margin:0!important;padding:0 1%!important;line-height:1!important;background:linear-gradient(#1249a5,#04174a)!important;color:#fff!important;white-space:nowrap!important}
+.pop-v2 .v2-total-box>strong{display:flex!important;align-items:center!important;justify-content:center!important;flex:1 1 58%!important;width:100%!important;min-height:0!important;margin:0!important;padding:0!important;line-height:1!important;background:#fff!important;color:#080808!important;white-space:nowrap!important;letter-spacing:-.065em!important}
+.pop-v2 .v2-savings>b{background:#ffeb00!important;color:#090909!important}
+.pop-v2 .v2-savings>strong{color:#d10000!important}
+.pop-v2 .v2-final{flex:0 0 46%!important;width:46%!important;position:relative!important;overflow:hidden!important;border:2px solid #ba0000!important;border-radius:10px!important;background:#d90000!important;box-shadow:none!important}
+.pop-v2 .v2-final>b{flex:0 0 42%!important;width:100%!important;height:42%!important;background:linear-gradient(#f20b0b,#cf0000)!important;color:#fff!important;text-align:center!important}
+.pop-v2 .v2-final>strong{flex:1 1 58%!important;width:100%!important;background:linear-gradient(#d60000,#b90000)!important;color:#fff000!important;text-shadow:none!important;letter-spacing:-.07em!important;text-align:center!important}
+.pop-v2 .v2-final::before{content:none!important}
+.pop-v2 .v2-condition{padding-top:0!important}
 @media print{
  #pop-cards-container .subscription-pop.pop-v2{width:142.5mm!important;height:200mm!important;grid-template-rows:7% 9% 5.5% 15.5% 7% 10% 12% 13.5% 13% 7.5%!important;padding:3mm!important}
+ .pop-v2 .v2-ribbon{font-size:29pt!important}
  .pop-v2 .v2-store{font-size:18pt!important}
- .pop-v2 .v2-ribbon{font-size:25pt!important}
  .pop-v2 .v2-event{font-size:11pt!important}
  .pop-v2 .v2-name{font-size:27pt!important}
  .pop-v2 .v2-model{font-size:13pt!important}
@@ -1050,7 +1040,7 @@
  .pop-v2 .v2-price>strong{font-size:31pt!important}
  .pop-v2 .v2-benefit{font-size:10.5pt!important}
  .pop-v2 .v2-total-box>b{font-size:10pt!important}
- .pop-v2 .v2-total-box>strong{font-size:14pt!important}
+ .pop-v2 .v2-total-box>strong{font-size:13pt!important}
  .pop-v2 .v2-final>b{font-size:12pt!important}
  .pop-v2 .v2-final>strong{font-size:23pt!important}
  .pop-v2 .v2-condition{font-size:10.5pt!important}
