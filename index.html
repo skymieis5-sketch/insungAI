@@ -1150,6 +1150,17 @@
  #pop-cards-container .pop-v2 .v2-condition{font-size:11pt!important}
 }
 
+
+/* PRINT PAGINATION FIX: do not force a page break after the final POP pair */
+@media print {
+  #pop-cards-container .sub-preview-wrap:nth-child(2n){break-after:auto!important;page-break-after:auto!important}
+  #pop-cards-container .sub-preview-wrap:nth-child(2n):not(:last-child){break-after:page!important;page-break-after:always!important}
+  #pop-cards-container{width:297mm!important;grid-template-columns:148.5mm 148.5mm!important;grid-auto-rows:210mm!important;row-gap:0!important;column-gap:0!important}
+  #pop-cards-container .sub-preview-wrap{height:210mm!important;min-height:0!important;max-height:210mm!important;overflow:hidden!important}
+  #pop-print-area{height:auto!important;min-height:0!important}
+  #pop-modal,#pop-modal>div{height:auto!important;min-height:0!important}
+}
+
 </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
