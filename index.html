@@ -1016,6 +1016,25 @@
   .pop-v2 .v2-final>strong{font-size:21pt!important}
 }
 
+/* 상단 문구와 하단 금액표 정리: 장식 제거, 세 칸 모두 헤더/금액 구획 */
+.pop-v2 .v2-ribbon{display:flex!important;align-items:center!important;justify-content:center!important;gap:0!important;letter-spacing:0!important;padding:0 2%!important}
+.pop-v2 .v2-ribbon-title{display:inline-block!important;white-space:nowrap!important;font-size:1em!important;font-weight:950!important;letter-spacing:-.045em!important;word-spacing:0!important}
+.pop-v2 .v2-ribbon-title em{margin-left:.12em!important;font-style:normal!important}
+.pop-v2 .v2-totals{grid-template-columns:27% 27% 44%!important;gap:1%!important}
+.pop-v2 .v2-total-box{display:grid!important;grid-template-rows:42% 58%!important;align-items:stretch!important;justify-content:stretch!important;overflow:hidden!important}
+.pop-v2 .v2-total-box>b{display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0 1%!important;line-height:1.05!important}
+.pop-v2 .v2-total-box>strong{display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0 1%!important;line-height:1!important;min-width:0!important}
+.pop-v2 .v2-final{display:grid!important;grid-template-rows:42% 58%!important;gap:0!important;background:#fff7d4!important;border:2px solid #c40000!important;border-radius:9px!important;box-shadow:none!important}
+.pop-v2 .v2-final>b{display:flex!important;align-items:center!important;justify-content:center!important;background:linear-gradient(100deg,#eb0b0b,#b80000)!important;color:#fff!important;padding:0 1%!important;font-size:clamp(12px,1.2vw,17px)!important;letter-spacing:-.025em!important}
+.pop-v2 .v2-final>strong{display:flex!important;align-items:center!important;justify-content:center!important;background:linear-gradient(#fff9dc,#ffeb93)!important;color:#b90000!important;font-size:clamp(20px,2.2vw,32px)!important;text-shadow:none!important;letter-spacing:-.06em!important}
+@media print{
+  .pop-v2 .v2-ribbon{font-size:22pt!important}
+  .pop-v2 .v2-ribbon-title{letter-spacing:-.045em!important}
+  .pop-v2 .v2-totals{grid-template-columns:27% 27% 44%!important;gap:1%!important}
+  .pop-v2 .v2-final>b{font-size:12pt!important}
+  .pop-v2 .v2-final>strong{font-size:22pt!important}
+}
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -3326,7 +3345,7 @@
       const nameHtml=isLG?'<span class="v2-brand-lg">LG</span> '+popSafe(popGet(r,'품목')):isSamsung?'<span class="v2-brand-samsung">삼성</span> '+popSafe(popGet(r,'품목')):popSafe(name);
       return '<article class="subscription-pop pop-v2">'+
         '<div class="v2-store"><span class="v2-lotte-symbol">ℓ</span><strong>롯데하이마트 상록수점</strong></div>'+
-        '<div class="v2-ribbon"><span>❧</span> 가전 구독 <em>특별행사</em> <span>❧</span></div>'+
+        '<div class="v2-ribbon"><span class="v2-ribbon-title">가전 구독 <em>특별행사</em></span></div>'+
         '<div class="v2-event"><b>▦ 행사기간</b><span>'+eventText+'</span></div>'+
         '<div class="v2-product"><div class="v2-recommend">♛<span>구독<br>추천</span></div><div class="v2-product-main"><div class="v2-name">'+nameHtml+'</div><div class="v2-model">'+popSafe(model)+'</div></div></div>'+
         '<div class="v2-duration"><b>구독기간</b><strong>'+popSafe(months)+'개월 <small>('+Math.round(number(months)/12)+'년)</small></strong></div>'+
