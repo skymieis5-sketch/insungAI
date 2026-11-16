@@ -566,6 +566,12 @@
       .subscription-pop .sub-store-line .sub-event-period{font-size:9pt!important}
     }
 
+    /* 행사기간과 제품명 사이 빈 공간만 5mm 축소 */
+    @media print{
+      .subscription-pop{grid-template-rows:23mm 14mm 10mm auto auto!important}
+      .subscription-pop .sub-top{height:23mm!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
