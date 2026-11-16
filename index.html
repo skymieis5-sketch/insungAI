@@ -765,6 +765,64 @@
       .subscription-pop .sub-notes>div{font-size:10.5pt!important;line-height:1.25!important}
     }
 
+    /* A4 2분할 인쇄 안정화: 200mm 안에서 하단 띠/유의사항 잘림 방지 */
+    @media print{
+      #pop-cards-container .subscription-pop{
+        height:200mm!important;min-height:0!important;
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr)!important;
+        grid-template-rows:25mm 14mm 10mm 116mm 19mm!important;
+        align-content:start!important;
+        padding:3mm 3.5mm!important;
+        overflow:hidden!important;
+      }
+      .subscription-pop .sub-top{height:25mm!important;min-height:0!important}
+      .subscription-pop .sub-ribbon{font-size:20pt!important;padding:1.5mm 1mm!important}
+      .subscription-pop .sub-store-line{gap:.5mm!important}
+      .subscription-pop .sub-store-line .sub-store{font-size:12pt!important;line-height:1!important}
+      .subscription-pop .sub-store-line .sub-store strong{font-size:11pt!important;padding:.5mm 2mm!important}
+      .subscription-pop .sub-store-line .sub-event-period{font-size:9pt!important;padding:.3mm 4mm!important}
+      .subscription-pop .sub-title-row .sub-title{font-size:27pt!important}
+      .subscription-pop .sub-title-row .sub-manager-pick{font-size:10pt!important;padding:1.2mm 1.3mm!important}
+      .subscription-pop .sub-model{font-size:11pt!important}
+      .subscription-pop .sub-content{height:116mm!important;min-height:0!important;align-self:start!important}
+      .subscription-pop .sub-details{
+        display:grid!important;
+        height:116mm!important;min-height:0!important;
+        grid-template-rows:22mm 31mm 49mm 9mm!important;
+        row-gap:1.5mm!important;align-content:start!important;
+      }
+      .subscription-pop .sub-facts span{font-size:11pt!important}
+      .subscription-pop .sub-facts b{font-size:13pt!important}
+      .subscription-pop .sub-highlight>div{font-size:17pt!important}
+      .subscription-pop .sub-highlight strong{font-size:31pt!important}
+      .subscription-pop .sub-benefits{
+        min-height:0!important;
+        grid-template-rows:10mm 6mm repeat(3,10mm)!important;
+        align-content:center!important;padding:1mm 2.5mm!important;
+      }
+      .subscription-pop .sub-benefits .sub-benefit,
+      .subscription-pop .sub-benefits .sub-benefit span,
+      .subscription-pop .sub-benefits .sub-benefit b{font-size:14pt!important}
+      .subscription-pop .sub-benefits .sub-care-title{font-size:12pt!important}
+      .subscription-pop .sub-benefits .sub-allcare,
+      .subscription-pop .sub-benefits .sub-allcare b,
+      .subscription-pop .sub-benefits .sub-allcare span,
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare),
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare) b{
+        font-size:10.5pt!important;line-height:1.13!important;
+      }
+      .subscription-pop .sub-gift{font-size:12pt!important;min-height:0!important}
+      .subscription-pop .sub-notes{
+        height:19mm!important;min-height:0!important;
+        align-self:start!important;margin-top:1mm!important;
+        overflow:visible!important;
+      }
+      .subscription-pop .sub-notes,.subscription-pop .sub-notes>div{
+        font-size:10pt!important;line-height:1.2!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
