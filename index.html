@@ -1091,6 +1091,65 @@
   #pop-cards-container .pop-v2 .v2-condition>span{padding:1mm 1mm!important}
 }
 
+
+/* POP REBUILD 2026-11-16: single source of truth for screen + print */
+#pop-cards-container .pop-v2{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:6.5% 9.5% 5.5% 15.5% 6.5% 11% 13% 13.5% 13% 6%!important;
+  box-sizing:border-box!important;aspect-ratio:148.5/210!important;width:100%!important;height:auto!important;
+  padding:2.5%!important;border:3px solid #06165c!important;border-radius:3.8%!important;
+  font-family:'Malgun Gothic',Arial,sans-serif!important;background:#fff!important;
+  color:#000!important;overflow:hidden!important;line-height:1.08!important;
+}
+#pop-cards-container .pop-v2 .v2-store{font-size:clamp(19px,2.3vw,36px)!important;color:#071b58!important;font-weight:1000!important}
+#pop-cards-container .pop-v2 .v2-lotte-symbol{font-size:1.15em!important;width:1.4em!important;height:1.4em!important;background:#ed0012!important}
+#pop-cards-container .pop-v2 .v2-ribbon{font-size:clamp(27px,3.3vw,50px)!important;background:linear-gradient(110deg,#071044,#0c2b77,#061044)!important;clip-path:polygon(4% 0,96% 0,100% 50%,96% 100%,4% 100%,0 50%)!important;border-radius:0!important}
+#pop-cards-container .pop-v2 .v2-ribbon-title em{font-style:normal!important;color:#ffeb00!important}
+#pop-cards-container .pop-v2 .v2-event{font-size:clamp(12px,1.3vw,20px)!important}
+#pop-cards-container .pop-v2 .v2-product{grid-template-columns:24% 76%!important}
+#pop-cards-container .pop-v2 .v2-recommend{font-size:clamp(18px,1.85vw,29px)!important}
+#pop-cards-container .pop-v2 .v2-name{font-size:clamp(30px,3.5vw,54px)!important;letter-spacing:-.075em!important}
+#pop-cards-container .pop-v2 .v2-model{font-size:clamp(15px,1.65vw,26px)!important}
+#pop-cards-container .pop-v2 .v2-duration>b{font-size:clamp(17px,1.75vw,27px)!important}
+#pop-cards-container .pop-v2 .v2-duration>strong{font-size:clamp(28px,3.1vw,46px)!important}
+#pop-cards-container .pop-v2 .v2-facts>div{font-size:clamp(17px,1.75vw,27px)!important}
+#pop-cards-container .pop-v2 .v2-facts strong{font-size:1.15em!important}
+#pop-cards-container .pop-v2 .v2-price{grid-template-columns:32% 11% minmax(0,57%)!important;background:linear-gradient(#f00000,#c70000)!important}
+#pop-cards-container .pop-v2 .v2-price>b{font-size:clamp(17px,1.85vw,29px)!important}
+#pop-cards-container .pop-v2 .v2-price>span{font-size:clamp(20px,2.1vw,33px)!important}
+#pop-cards-container .pop-v2 .v2-price>strong{font-size:clamp(38px,4.3vw,65px)!important;justify-self:end!important}
+#pop-cards-container .pop-v2 .v2-benefit-title{font-size:clamp(17px,1.8vw,28px)!important}
+#pop-cards-container .pop-v2 .v2-benefit{font-size:clamp(13px,1.47vw,23px)!important;white-space:normal!important;line-height:1.15!important;overflow:visible!important}
+#pop-cards-container .pop-v2 .v2-benefit span{overflow:visible!important;text-overflow:clip!important}
+#pop-cards-container .pop-v2 .v2-totals .v2-total-box>b{font-size:clamp(13px,1.4vw,22px)!important}
+#pop-cards-container .pop-v2 .v2-totals .v2-total-box>strong{font-size:clamp(16px,1.6vw,25px)!important}
+#pop-cards-container .pop-v2 .v2-totals .v2-final>b{font-size:clamp(17px,1.85vw,28px)!important}
+#pop-cards-container .pop-v2 .v2-totals .v2-final>strong{font-size:clamp(27px,3.1vw,46px)!important}
+#pop-cards-container .pop-v2 .v2-condition{font-size:clamp(12px,1.35vw,21px)!important}
+@media print{
+ @page{size:A4 landscape;margin:0}
+ #pop-cards-container .pop-v2{width:148.5mm!important;height:210mm!important;aspect-ratio:auto!important;padding:2.4mm!important;border:0.75mm solid #06165c!important;border-radius:5mm!important}
+ #pop-cards-container .pop-v2 .v2-store{font-size:19pt!important}
+ #pop-cards-container .pop-v2 .v2-ribbon{font-size:29pt!important}
+ #pop-cards-container .pop-v2 .v2-event{font-size:12pt!important}
+ #pop-cards-container .pop-v2 .v2-recommend{font-size:19pt!important}
+ #pop-cards-container .pop-v2 .v2-name{font-size:30pt!important}
+ #pop-cards-container .pop-v2 .v2-model{font-size:15pt!important}
+ #pop-cards-container .pop-v2 .v2-duration>b{font-size:18pt!important}
+ #pop-cards-container .pop-v2 .v2-duration>strong{font-size:29pt!important}
+ #pop-cards-container .pop-v2 .v2-facts>div{font-size:15pt!important}
+ #pop-cards-container .pop-v2 .v2-price>b{font-size:17pt!important}
+ #pop-cards-container .pop-v2 .v2-price>span{font-size:19pt!important}
+ #pop-cards-container .pop-v2 .v2-price>strong{font-size:37pt!important}
+ #pop-cards-container .pop-v2 .v2-benefit-title{font-size:16pt!important}
+ #pop-cards-container .pop-v2 .v2-benefit{font-size:12.5pt!important}
+ #pop-cards-container .pop-v2 .v2-totals .v2-total-box>b{font-size:12pt!important}
+ #pop-cards-container .pop-v2 .v2-totals .v2-total-box>strong{font-size:14pt!important}
+ #pop-cards-container .pop-v2 .v2-totals .v2-final>b{font-size:15pt!important}
+ #pop-cards-container .pop-v2 .v2-totals .v2-final>strong{font-size:26pt!important}
+ #pop-cards-container .pop-v2 .v2-condition{font-size:11pt!important}
+}
+
 </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
