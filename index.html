@@ -998,6 +998,24 @@
 
 /* A4 2분할 인쇄 안정화: 검증된 기본 POP v2 크기와 배치로 복원 */
 
+/* A4 인쇄 기준 상단 제목/최종혜택가 정렬 보정 — 전체 카드 크기 불변 */
+.pop-v2 .v2-ribbon{display:flex!important;justify-content:center!important;gap:.28em!important;letter-spacing:-.045em!important;padding:0 2%!important}
+.pop-v2 .v2-ribbon>span{font-size:.65em!important;flex:0 0 auto!important}
+.pop-v2 .v2-ribbon em{white-space:nowrap!important}
+.pop-v2 .v2-totals{grid-template-columns:26% 26% 46%!important;gap:1%!important;padding-top:1.5%!important;min-width:0!important}
+.pop-v2 .v2-total-box{min-width:0!important;overflow:hidden!important}
+.pop-v2 .v2-final{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:0!important;background:linear-gradient(180deg,#e70b0b,#b90000)!important;border-radius:9px!important;border:1.5px solid #b90000!important;box-shadow:none!important}
+.pop-v2 .v2-final::before{content:none!important}
+.pop-v2 .v2-final>b{display:block!important;flex:none!important;width:100%!important;padding:2% 0 0!important;margin:0!important;text-align:center!important;line-height:1.15!important;font-size:clamp(12px,1.1vw,16px)!important}
+.pop-v2 .v2-final>strong{display:block!important;width:100%!important;margin:0!important;text-align:center!important;line-height:1.12!important;font-size:clamp(20px,2.25vw,32px)!important;letter-spacing:-.07em!important;white-space:nowrap!important}
+.pop-v2 .v2-savings::after{content:none!important}
+@media print{
+  .pop-v2 .v2-ribbon{font-size:21pt!important;gap:.28em!important}
+  .pop-v2 .v2-totals{grid-template-columns:26% 26% 46%!important;gap:1%!important}
+  .pop-v2 .v2-final>b{font-size:11pt!important}
+  .pop-v2 .v2-final>strong{font-size:21pt!important}
+}
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
