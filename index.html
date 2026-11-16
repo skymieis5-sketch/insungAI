@@ -572,6 +572,28 @@
       .subscription-pop .sub-top{height:23mm!important}
     }
 
+    /* 실제 프린터 비인쇄 영역 대비: A4 가로 좌우 5mm, 중앙 2mm 안전 여백 */
+    @media print{
+      html,body{width:297mm!important;max-width:297mm!important}
+      #pop-modal>div{width:297mm!important;max-width:297mm!important}
+      #pop-print-area{width:297mm!important;box-sizing:border-box!important;padding:5mm!important;margin:0!important}
+      #pop-cards-container{
+        display:grid!important;
+        grid-template-columns:142.5mm 142.5mm!important;
+        column-gap:2mm!important;row-gap:0!important;
+        width:287mm!important;margin:0!important;padding:0!important;
+      }
+      #pop-cards-container .sub-preview-wrap{
+        width:142.5mm!important;height:200mm!important;
+        min-width:0!important;box-sizing:border-box!important;
+      }
+      #pop-cards-container .subscription-pop{
+        width:142.5mm!important;height:200mm!important;
+        max-width:142.5mm!important;box-sizing:border-box!important;
+        overflow:hidden!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
