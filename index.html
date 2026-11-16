@@ -631,6 +631,17 @@
       }
     }
 
+    /* 점장추천 배지를 제품명 왼쪽으로 이동 */
+    .subscription-pop .sub-title-row .sub-manager-pick{
+      left:0!important;right:auto!important;
+      top:50%!important;transform:translateY(-50%)!important;
+    }
+    @media print{
+      .subscription-pop .sub-title-row .sub-manager-pick{
+        left:0!important;right:auto!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
