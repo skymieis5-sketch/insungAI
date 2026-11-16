@@ -515,6 +515,23 @@
       .subscription-pop .sub-store-line .sub-event-period{font-size:8pt!important;max-width:31%!important}
     }
 
+    /* 행사기간 중앙 정렬: 매장명 아래 별도 행으로 배치하여 제품명 겹침 방지 */
+    .subscription-pop .sub-store-line{
+      display:flex!important;flex-direction:column!important;align-items:center!important;
+      justify-content:center!important;position:static!important;gap:2px!important;
+    }
+    .subscription-pop .sub-store-line .sub-event-period{
+      position:static!important;right:auto!important;top:auto!important;
+      transform:none!important;max-width:100%!important;width:100%!important;
+      text-align:center!important;margin:0!important;white-space:nowrap!important;
+      font-size:11px!important;line-height:1.2!important;
+    }
+    @media print{
+      .subscription-pop{grid-template-rows:25mm 14mm 10mm auto auto!important}
+      .subscription-pop .sub-store-line{gap:1mm!important}
+      .subscription-pop .sub-store-line .sub-event-period{font-size:9pt!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
