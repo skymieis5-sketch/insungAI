@@ -1027,7 +1027,30 @@
 #pop-cards-container .pop-v2 .v2-price{grid-template-columns:34% 12% minmax(0,54%)!important;column-gap:0!important}
 #pop-cards-container .pop-v2 .v2-price>span{justify-self:end!important;margin-right:0!important}
 #pop-cards-container .pop-v2 .v2-price>strong{justify-self:start!important;margin-left:.12em!important;margin-right:0!important}
-</style>
+
+    /* 2026-11-16 승인된 2단 POP 이미지 기준 보정: 원본 구성과 인쇄 비율 유지 */
+    #pop-cards-container .pop-v2{border:3px solid #07185b!important;border-radius:18px!important;padding:2.1%!important;grid-template-rows:7% 10% 5.5% 15% 6% 10.5% 13% 14% 13% 6%!important}
+    #pop-cards-container .pop-v2 .v2-ribbon{border-radius:45% 45% 5px 5px / 25% 25% 5px 5px!important;transform:none!important}
+    #pop-cards-container .pop-v2 .v2-ribbon-title em{font-style:normal!important}
+    #pop-cards-container .pop-v2 .v2-price{grid-template-columns:31% 11% minmax(0,58%)!important}
+    #pop-cards-container .pop-v2 .v2-price>strong{justify-self:end!important;letter-spacing:-.075em!important}
+    #pop-cards-container .pop-v2 .v2-price>span{justify-self:center!important}
+    #pop-cards-container .pop-v2 .v2-total-box>strong{background:#fff!important}
+    #pop-cards-container .pop-v2 .v2-final>strong{background:#d00000!important;color:#ffed00!important}
+    #pop-cards-container .pop-v2 .v2-benefit-lines{overflow:hidden}
+    #pop-cards-container .pop-v2 .v2-benefit{font-size:clamp(11px,1.28vw,18px);letter-spacing:-.06em;overflow:hidden}
+    #pop-cards-container .pop-v2 .v2-benefit span{overflow:hidden;text-overflow:ellipsis}
+    @media print{
+      @page{size:A4 landscape;margin:0}
+      #pop-cards-container .pop-v2{border:2.5px solid #07185b!important;border-radius:5mm!important;padding:2%!important}
+      #pop-cards-container .pop-v2 .v2-benefit{font-size:10.5pt!important}
+      #pop-cards-container .pop-v2 .v2-price>strong{font-size:29pt!important}
+      #pop-cards-container .pop-v2 .v2-total-box>strong{font-size:11pt!important}
+      #pop-cards-container .pop-v2 .v2-final>strong{font-size:21pt!important}
+      #pop-cards-container .pop-v2 .v2-ribbon-title em{font-style:normal!important}
+    }
+
+  </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
 
@@ -3329,8 +3352,8 @@
       const finalTotal=fullTotal-totalDiscount;
       const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
       const discountText=monthlyDiscount>0?'-'+won(monthlyDiscount):'0원';
-      const careLine=care?'<div class="v2-benefit"><i>✓</i><span>'+popSafe(care)+'</span></div>':'';
-      const regularLine=regular?'<div class="v2-benefit"><i>✓</i><span>'+popSafe(regular)+'</span></div>':'';
+      const careLine='<div class="v2-benefit"><i>✓</i><span>'+popSafe(popGet(r,'정기케어2') || '완전분해청소 1회 (24개월 주기)')+'</span></div>';
+      const regularLine='<div class="v2-benefit"><i>✓</i><span>'+popSafe(popGet(r,'안심케어1') || '제조사 기본 A/S + 최대 4년 연장 (총 5년 무상보증)')+'</span></div>';
       const eventText=term?popSafe(term):'행사기간 별도 확인';
       const isLG=/LG|엘지/i.test(brand);
       const isSamsung=/삼성|SAMSUNG/i.test(brand);
