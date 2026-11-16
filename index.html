@@ -608,6 +608,29 @@
       .subscription-pop .sub-manager-pick{font-size:9pt!important;padding:1mm 1.5mm!important}
     }
 
+    /* 모든 구독 POP에 사선 골드 포인트 점장추천 배지 */
+    .subscription-pop .sub-manager-pick{
+      display:inline-flex!important;align-items:center!important;justify-content:center!important;
+      gap:3px!important;right:0!important;top:50%!important;
+      background:repeating-linear-gradient(135deg,#fff5cb 0px,#fff5cb 7px,#ffe5a0 7px,#ffe5a0 12px)!important;
+      border:1.5px solid #d79b13!important;border-radius:7px!important;
+      color:#713b00!important;box-shadow:1px 2px 0 rgba(148,93,0,.18)!important;
+      font-weight:950!important;letter-spacing:-.03em!important;
+    }
+    .subscription-pop .sub-manager-star{
+      display:inline-flex!important;align-items:center!important;justify-content:center!important;
+      width:1.45em!important;height:1.45em!important;border-radius:4px!important;
+      color:#fff!important;background:linear-gradient(135deg,#d99c11,#a85b00)!important;
+      font-size:1em!important;line-height:1!important;transform:rotate(-12deg)!important;
+      text-shadow:0 1px 1px rgba(0,0,0,.25)!important;
+    }
+    @media print{
+      .subscription-pop .sub-manager-pick{
+        font-size:9pt!important;padding:1mm 1.5mm!important;
+        -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -2908,7 +2931,7 @@
       const benefits=[care?'<div><b>안심케어</b> '+popSafe(care)+'</div>':'',regular?'<div><b>정기케어</b> '+popSafe(regular)+'</div>':''].filter(Boolean).join('');
       return '<article class="subscription-pop">'+
         '<header class="sub-top"><div class="sub-ribbon">가전 구독 <em>특별행사</em></div><div class="sub-store-line"><div class="sub-store">LOTTE HIMART <strong>상록수점</strong></div>'+(term?'<div class="sub-event-period">행사기간 : '+popSafe(term)+'</div>':'')+'</div></header>'+
-        '<div class="sub-title-row"><div class="sub-title">'+popSafe(name||'가전 구독')+'</div>'+(isPlux?'<span class="sub-manager-pick">★ 점장추천</span>':'')+'</div><div class="sub-model">'+popSafe(model)+'</div>'+
+        '<div class="sub-title-row"><div class="sub-title">'+popSafe(name||'가전 구독')+'</div>'+'<span class="sub-manager-pick"><span class="sub-manager-star">★</span> 점장추천</span>'+'</div><div class="sub-model">'+popSafe(model)+'</div>'+
         '<div class="sub-content">'+
         '<div class="sub-details"><div class="sub-facts"><div><span>구독기간</span><b>'+popSafe(months)+'개월</b></div><div><span>기본 월 구독료</span><b>'+popWon(base)+'</b></div></div>'+
         '<div class="sub-highlight"><div>제휴카드 <em>구독혜택</em></div><strong>월 '+popWon(card)+'</strong></div>'+
