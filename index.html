@@ -1019,6 +1019,14 @@
  #pop-cards-container .pop-v2 .v2-final>strong{font-size:27pt!important}
 }
 
+
+/* POP refinement: clean header, compact monthly-price grouping */
+#pop-cards-container .pop-v2 .v2-lotte-symbol{font-family:Arial,sans-serif!important;font-style:normal!important;font-weight:900!important;font-size:1em!important;letter-spacing:-.08em!important;border-radius:50%!important;transform:none!important}
+#pop-cards-container .pop-v2 .v2-ribbon:before,#pop-cards-container .pop-v2 .v2-ribbon:after{content:none!important;display:none!important}
+#pop-cards-container .pop-v2 .v2-ribbon-title,#pop-cards-container .pop-v2 .v2-ribbon-title em{font-style:normal!important;transform:none!important;letter-spacing:-.035em!important}
+#pop-cards-container .pop-v2 .v2-price{grid-template-columns:34% 12% minmax(0,54%)!important;column-gap:0!important}
+#pop-cards-container .pop-v2 .v2-price>span{justify-self:end!important;margin-right:0!important}
+#pop-cards-container .pop-v2 .v2-price>strong{justify-self:start!important;margin-left:.12em!important;margin-right:0!important}
 </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -3328,7 +3336,7 @@
       const isSamsung=/삼성|SAMSUNG/i.test(brand);
       const nameHtml=isLG?'<span class="v2-brand-lg">LG</span> '+popSafe(popGet(r,'품목')):isSamsung?'<span class="v2-brand-samsung">삼성</span> '+popSafe(popGet(r,'품목')):popSafe(name);
       return '<article class="subscription-pop pop-v2">'+
-        '<div class="v2-store"><span class="v2-lotte-symbol">ℓ</span><strong>롯데하이마트 상록수점</strong></div>'+
+        '<div class="v2-store"><span class="v2-lotte-symbol">L</span><strong>롯데하이마트 상록수점</strong></div>'+
         '<div class="v2-ribbon"><span class="v2-ribbon-title">가전 구독 <em>특별행사</em></span></div>'+
         '<div class="v2-event"><b>▦ 행사기간</b><span>'+eventText+'</span></div>'+
         '<div class="v2-product"><div class="v2-recommend">♛<span>구독<br>추천</span></div><div class="v2-product-main"><div class="v2-name">'+nameHtml+'</div><div class="v2-model">'+popSafe(model)+'</div></div></div>'+
