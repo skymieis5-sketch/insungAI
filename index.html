@@ -857,6 +857,37 @@
       }
     }
 
+    /* 하단 안내문 잘림 최종 보정: 명시적 25mm 안내문 공간 확보 */
+    @media print{
+      #pop-cards-container .subscription-pop{
+        grid-template-rows:25mm 14mm 10mm 119mm 25mm!important;
+        align-content:start!important;
+      }
+      .subscription-pop .sub-top{height:25mm!important}
+      .subscription-pop .sub-content{height:119mm!important;min-height:0!important}
+      .subscription-pop .sub-details{
+        height:119mm!important;min-height:0!important;
+        grid-template-rows:22mm 31mm 49mm 9mm!important;
+        row-gap:1.5mm!important;align-content:start!important;
+      }
+      .subscription-pop .sub-benefits{
+        grid-template-rows:10mm 6mm repeat(3,10mm)!important;
+        padding:1mm 2.5mm!important;
+      }
+      .subscription-pop .sub-notes{
+        display:flex!important;flex-direction:column!important;
+        justify-content:flex-start!important;
+        height:25mm!important;min-height:25mm!important;
+        margin-top:1.5mm!important;padding:0!important;
+        overflow:visible!important;align-self:start!important;
+      }
+      .subscription-pop .sub-notes>div{
+        display:block!important;min-height:4.5mm!important;
+        font-size:10pt!important;line-height:1.25!important;
+        white-space:normal!important;
+      }
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
