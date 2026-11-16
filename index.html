@@ -3452,8 +3452,8 @@
       const finalTotal=fullTotal-totalDiscount;
       const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
       const discountText=monthlyDiscount>0?'-'+won(monthlyDiscount):'0원';
-      const careLine='<div class="v2-benefit"><i>✓</i><span>'+popSafe(popGet(r,'정기케어2') || '완전분해청소 1회 (24개월 주기)')+'</span></div>';
-      const regularLine='<div class="v2-benefit"><i>✓</i><span>'+popSafe(popGet(r,'안심케어1') || '제조사 기본 A/S + 최대 4년 연장 (총 5년 무상보증)')+'</span></div>';
+      const careLine='<div class="v2-benefit"><i>✓</i><span>'+popSafe([popGet(r,'안심케어1'),popGet(r,'안심케어2 횟수'),popGet(r,'안심케어2')?'('+popGet(r,'안심케어2')+')':''].filter(Boolean).join(' ') || '완전분해청소 1회 (24개월 주기)')+'</span></div>';
+      const regularLine='<div class="v2-benefit"><i>✓</i><span>'+popSafe(popGet(r,'정기케어2') || '제조사 기본 A/S + 최대 4년 연장 (총 5년 무상보증)')+'</span></div>';
       const eventText=term?popSafe(term):'행사기간 별도 확인';
       const isLG=/LG|엘지/i.test(brand);
       const isSamsung=/삼성|SAMSUNG/i.test(brand);
