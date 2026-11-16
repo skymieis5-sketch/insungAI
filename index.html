@@ -998,52 +998,63 @@
 
 /* A4 2분할 인쇄 안정화: 검증된 기본 POP v2 크기와 배치로 복원 */
 
-/* 참고 시안 정합: A4 2-up, 제목 및 3칸 금액 카드의 박스모델 확정 */
-.subscription-pop.pop-v2{grid-template-rows:7% 9% 5.5% 15.5% 7% 10% 12% 13.5% 13% 7.5%!important;gap:0!important;padding:2.1%!important}
-.pop-v2 .v2-store{gap:2%!important;letter-spacing:-.04em!important}
-.pop-v2 .v2-ribbon{display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;background:linear-gradient(105deg,#071443,#1b3981,#071443)!important;border-radius:11px 11px 3px 3px!important}
-.pop-v2 .v2-ribbon-title{font-weight:1000!important;letter-spacing:-.045em!important;white-space:nowrap!important;color:#fff!important}
-.pop-v2 .v2-ribbon-title em{font-style:italic!important;color:#fff000!important;margin-left:.14em!important}
-.pop-v2 .v2-product{grid-template-columns:23% 77%!important}
-.pop-v2 .v2-recommend{width:90%!important}
-.pop-v2 .v2-duration{justify-content:center!important;gap:7%!important}
-.pop-v2 .v2-duration>b{width:39%!important;text-align:center!important}
-.pop-v2 .v2-facts{gap:2px!important}
-.pop-v2 .v2-price{display:grid!important;grid-template-columns:31% 11% 58%!important;gap:0!important;align-items:center!important;padding:1.5% 2%!important}
-.pop-v2 .v2-price>strong{justify-self:center!important;letter-spacing:-.06em!important}
-.pop-v2 .v2-benefits{grid-template-columns:25% 75%!important}
-.pop-v2 .v2-benefit-lines{padding:0 1%!important}
-.pop-v2 .v2-benefit{letter-spacing:-.055em!important;white-space:nowrap!important}
-.pop-v2 .v2-totals{display:flex!important;flex-direction:row!important;align-items:stretch!important;justify-content:space-between!important;gap:1.2%!important;padding:1.5% 0 0!important;min-width:0!important;width:100%!important;box-sizing:border-box!important}
-.pop-v2 .v2-total-box{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:stretch!important;flex:0 0 25%!important;width:25%!important;min-width:0!important;min-height:0!important;border:1.5px solid #0b2d75!important;border-radius:10px!important;overflow:hidden!important;background:#fff!important;box-shadow:none!important;text-align:center!important}
-.pop-v2 .v2-total-box>b{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 42%!important;width:100%!important;height:42%!important;min-height:0!important;margin:0!important;padding:0 1%!important;line-height:1!important;background:linear-gradient(#1249a5,#04174a)!important;color:#fff!important;white-space:nowrap!important}
-.pop-v2 .v2-total-box>strong{display:flex!important;align-items:center!important;justify-content:center!important;flex:1 1 58%!important;width:100%!important;min-height:0!important;margin:0!important;padding:0!important;line-height:1!important;background:#fff!important;color:#080808!important;white-space:nowrap!important;letter-spacing:-.065em!important}
-.pop-v2 .v2-savings>b{background:#ffeb00!important;color:#090909!important}
-.pop-v2 .v2-savings>strong{color:#d10000!important}
-.pop-v2 .v2-final{flex:0 0 46%!important;width:46%!important;position:relative!important;overflow:hidden!important;border:2px solid #ba0000!important;border-radius:10px!important;background:#d90000!important;box-shadow:none!important}
-.pop-v2 .v2-final>b{flex:0 0 42%!important;width:100%!important;height:42%!important;background:linear-gradient(#f20b0b,#cf0000)!important;color:#fff!important;text-align:center!important}
-.pop-v2 .v2-final>strong{flex:1 1 58%!important;width:100%!important;background:linear-gradient(#d60000,#b90000)!important;color:#fff000!important;text-shadow:none!important;letter-spacing:-.07em!important;text-align:center!important}
-.pop-v2 .v2-final::before{content:none!important}
-.pop-v2 .v2-condition{padding-top:0!important}
+/* 인쇄 밀도/매장명/제목/금액표 최종 정리: 기존 2-up 규격 보존 */
+#pop-cards-container .subscription-pop.pop-v2{
+ grid-template-rows:8% 10% 5% 15% 6% 10% 12% 13% 14% 7%!important;
+ gap:0!important;padding:2%!important;box-sizing:border-box!important
+}
+#pop-cards-container .pop-v2 .v2-store{display:flex!important;align-items:center!important;justify-content:center!important;gap:2%!important;min-width:0!important;white-space:nowrap!important;font-size:clamp(20px,2.15vw,31px)!important;letter-spacing:-.045em!important;line-height:1!important}
+#pop-cards-container .pop-v2 .v2-store strong{font-size:1em!important;line-height:1!important;white-space:nowrap!important}
+#pop-cards-container .pop-v2 .v2-lotte-symbol{font-size:1.15em!important;width:1.25em!important;height:1.25em!important;line-height:1!important}
+#pop-cards-container .pop-v2 .v2-ribbon{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;padding:0 1%!important;font-size:clamp(26px,3.2vw,43px)!important;line-height:1!important;letter-spacing:-.04em!important;background:linear-gradient(110deg,#07184b,#193b89,#07184b)!important}
+#pop-cards-container .pop-v2 .v2-ribbon-title{font-size:1em!important;font-weight:1000!important;letter-spacing:-.045em!important;white-space:nowrap!important;color:white!important}
+#pop-cards-container .pop-v2 .v2-ribbon-title em{font-style:italic!important;color:#ffe800!important}
+#pop-cards-container .pop-v2 .v2-event{font-size:clamp(12px,1.3vw,18px)!important}
+#pop-cards-container .pop-v2 .v2-product{grid-template-columns:24% 76%!important}
+#pop-cards-container .pop-v2 .v2-recommend{width:92%!important;font-size:clamp(16px,1.7vw,24px)!important}
+#pop-cards-container .pop-v2 .v2-name{font-size:clamp(27px,3vw,43px)!important;letter-spacing:-.055em!important}
+#pop-cards-container .pop-v2 .v2-model{font-size:clamp(14px,1.5vw,21px)!important}
+#pop-cards-container .pop-v2 .v2-duration{justify-content:center!important;gap:5%!important}
+#pop-cards-container .pop-v2 .v2-duration>b{width:41%!important;text-align:center!important;font-size:clamp(15px,1.6vw,22px)!important}
+#pop-cards-container .pop-v2 .v2-duration>strong{font-size:clamp(25px,2.8vw,39px)!important}
+#pop-cards-container .pop-v2 .v2-facts>div{font-size:clamp(15px,1.6vw,22px)!important}
+#pop-cards-container .pop-v2 .v2-price{display:grid!important;grid-template-columns:31% 11% 58%!important;gap:0!important;padding:1% 2%!important}
+#pop-cards-container .pop-v2 .v2-price>b{font-size:clamp(16px,1.65vw,23px)!important}
+#pop-cards-container .pop-v2 .v2-price>span{font-size:clamp(18px,1.85vw,26px)!important;justify-self:center!important}
+#pop-cards-container .pop-v2 .v2-price>strong{font-size:clamp(32px,3.4vw,47px)!important;justify-self:center!important;white-space:nowrap!important}
+#pop-cards-container .pop-v2 .v2-benefits{grid-template-columns:25% 75%!important;margin:0!important}
+#pop-cards-container .pop-v2 .v2-benefit{font-size:clamp(12px,1.28vw,18px)!important;white-space:nowrap!important;letter-spacing:-.05em!important}
+#pop-cards-container .pop-v2 .v2-totals{display:grid!important;grid-template-columns:27% 27% 44%!important;gap:1%!important;align-items:stretch!important;padding:0!important;width:100%!important;min-width:0!important;box-sizing:border-box!important}
+#pop-cards-container .pop-v2 .v2-total-box{display:grid!important;grid-template-rows:40% 60%!important;min-width:0!important;min-height:0!important;width:auto!important;height:100%!important;overflow:hidden!important;border:1.5px solid #0b2d75!important;border-radius:10px!important;background:white!important}
+#pop-cards-container .pop-v2 .v2-total-box>b{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:100%!important;min-height:0!important;margin:0!important;padding:0!important;line-height:1!important;font-size:clamp(13px,1.3vw,18px)!important}
+#pop-cards-container .pop-v2 .v2-total-box>strong{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:100%!important;min-height:0!important;margin:0!important;padding:0!important;line-height:1!important;font-size:clamp(15px,1.65vw,23px)!important;letter-spacing:-.07em!important}
+#pop-cards-container .pop-v2 .v2-savings>b{background:#ffe500!important;color:#080808!important}
+#pop-cards-container .pop-v2 .v2-savings>strong{color:#d10000!important}
+#pop-cards-container .pop-v2 .v2-final{display:grid!important;grid-template-rows:40% 60%!important;min-width:0!important;width:auto!important;height:100%!important;border:2px solid #b90000!important;border-radius:10px!important;background:#d40000!important;overflow:hidden!important;box-shadow:none!important}
+#pop-cards-container .pop-v2 .v2-final>b{font-size:clamp(14px,1.45vw,21px)!important;background:linear-gradient(#f20a0a,#d00000)!important;color:white!important}
+#pop-cards-container .pop-v2 .v2-final>strong{font-size:clamp(26px,2.7vw,38px)!important;background:linear-gradient(#d50000,#b90000)!important;color:#fff000!important;text-shadow:none!important;white-space:nowrap!important}
+#pop-cards-container .pop-v2 .v2-final::before{content:none!important}
+#pop-cards-container .pop-v2 .v2-condition{font-size:clamp(12px,1.25vw,18px)!important;padding:0!important}
 @media print{
- #pop-cards-container .subscription-pop.pop-v2{width:142.5mm!important;height:200mm!important;grid-template-rows:7% 9% 5.5% 15.5% 7% 10% 12% 13.5% 13% 7.5%!important;padding:3mm!important}
- .pop-v2 .v2-ribbon{font-size:29pt!important}
- .pop-v2 .v2-store{font-size:18pt!important}
- .pop-v2 .v2-event{font-size:11pt!important}
- .pop-v2 .v2-name{font-size:27pt!important}
- .pop-v2 .v2-model{font-size:13pt!important}
- .pop-v2 .v2-recommend{font-size:16pt!important}
- .pop-v2 .v2-duration>strong{font-size:24pt!important}
- .pop-v2 .v2-facts>div{font-size:13pt!important}
- .pop-v2 .v2-price>b{font-size:14pt!important}
- .pop-v2 .v2-price>span{font-size:17pt!important}
- .pop-v2 .v2-price>strong{font-size:31pt!important}
- .pop-v2 .v2-benefit{font-size:10.5pt!important}
- .pop-v2 .v2-total-box>b{font-size:10pt!important}
- .pop-v2 .v2-total-box>strong{font-size:13pt!important}
- .pop-v2 .v2-final>b{font-size:12pt!important}
- .pop-v2 .v2-final>strong{font-size:23pt!important}
- .pop-v2 .v2-condition{font-size:10.5pt!important}
+ #pop-cards-container .subscription-pop.pop-v2{width:142.5mm!important;height:200mm!important;padding:3mm!important;grid-template-rows:8% 10% 5% 15% 6% 10% 12% 13% 14% 7%!important}
+ #pop-cards-container .pop-v2 .v2-store{font-size:20pt!important}
+ #pop-cards-container .pop-v2 .v2-ribbon{font-size:29pt!important}
+ #pop-cards-container .pop-v2 .v2-event{font-size:12pt!important}
+ #pop-cards-container .pop-v2 .v2-name{font-size:28pt!important}
+ #pop-cards-container .pop-v2 .v2-model{font-size:14pt!important}
+ #pop-cards-container .pop-v2 .v2-recommend{font-size:17pt!important}
+ #pop-cards-container .pop-v2 .v2-duration>b{font-size:15pt!important}
+ #pop-cards-container .pop-v2 .v2-duration>strong{font-size:25pt!important}
+ #pop-cards-container .pop-v2 .v2-facts>div{font-size:14pt!important}
+ #pop-cards-container .pop-v2 .v2-price>b{font-size:15pt!important}
+ #pop-cards-container .pop-v2 .v2-price>span{font-size:19pt!important}
+ #pop-cards-container .pop-v2 .v2-price>strong{font-size:33pt!important}
+ #pop-cards-container .pop-v2 .v2-benefit{font-size:11pt!important}
+ #pop-cards-container .pop-v2 .v2-total-box>b{font-size:12pt!important}
+ #pop-cards-container .pop-v2 .v2-total-box>strong{font-size:15pt!important}
+ #pop-cards-container .pop-v2 .v2-final>b{font-size:14pt!important}
+ #pop-cards-container .pop-v2 .v2-final>strong{font-size:25pt!important}
+ #pop-cards-container .pop-v2 .v2-condition{font-size:11pt!important}
 }
 
 </style>
