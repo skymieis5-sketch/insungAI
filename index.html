@@ -594,6 +594,20 @@
       }
     }
 
+    /* PLUX 제품명 옆 빈 공간에 점장추천 강조 태그 */
+    .subscription-pop .sub-title-row{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-width:0!important}
+    .subscription-pop .sub-title-row .sub-title{margin:0!important;text-align:center!important}
+    .subscription-pop .sub-manager-pick{
+      position:absolute!important;right:0!important;top:50%!important;
+      transform:translateY(-50%)!important;background:#fff0b7!important;
+      border:1.5px solid #e6a700!important;border-radius:20px!important;
+      color:#8a3900!important;font-weight:950!important;font-size:clamp(10px,1vw,13px)!important;
+      padding:3px 6px!important;white-space:nowrap!important;line-height:1.1!important;
+    }
+    @media print{
+      .subscription-pop .sub-manager-pick{font-size:9pt!important;padding:1mm 1.5mm!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -2893,11 +2907,11 @@
       const benefits=[care?'<div><b>안심케어</b> '+popSafe(care)+'</div>':'',regular?'<div><b>정기케어</b> '+popSafe(regular)+'</div>':''].filter(Boolean).join('');
       return '<article class="subscription-pop">'+
         '<header class="sub-top"><div class="sub-ribbon">가전 구독 <em>특별행사</em></div><div class="sub-store-line"><div class="sub-store">LOTTE HIMART <strong>상록수점</strong></div>'+(term?'<div class="sub-event-period">행사기간 : '+popSafe(term)+'</div>':'')+'</div></header>'+
-        '<div class="sub-title">'+popSafe(name||'가전 구독')+'</div><div class="sub-model">'+popSafe(model)+'</div>'+
+        '<div class="sub-title-row"><div class="sub-title">'+popSafe(name||'가전 구독')+'</div>'+(/plux|플럭스/i.test(name)?'<span class="sub-manager-pick">★ 점장추천</span>':'')+'</div><div class="sub-model">'+popSafe(model)+'</div>'+
         '<div class="sub-content">'+
         '<div class="sub-details"><div class="sub-facts"><div><span>구독기간</span><b>'+popSafe(months)+'개월</b></div><div><span>기본 월 구독료</span><b>'+popWon(base)+'</b></div></div>'+
         '<div class="sub-highlight"><div>제휴카드 <em>구독혜택</em></div><strong>월 '+popWon(card)+'</strong></div>'+
-        '<div class="sub-benefits">'+discountLine+'<div class="sub-care-title">구독혜택</div><div class="sub-allcare"><b>가전수리올케어</b> <span>혜택 제공 (세부 보장조건 별도 확인)</span></div>'+benefits+'</div>'+
+        '<div class="sub-benefits">'+discountLine+'<div class="sub-care-title">구독혜택</div><div class="sub-allcare"><b>가전수리올케어</b> <span>혜택 제공</span></div>'+benefits+'</div>'+
         '<div class="sub-gift">하이마트에서 첫 구독을 특별하게!</div></div></div>'+
         '<footer class="sub-notes"><div>※ 서비스 안내 : '+popSafe(months)+'개월 기준</div>'+
         '<div>※ 제휴카드 조건 : 전월 30만원 이상 사용실적 충족 시 할인 적용</div>'+
