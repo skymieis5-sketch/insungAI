@@ -958,6 +958,18 @@
   .pop-v2 .v2-condition{font-size:10pt!important}
 }
 
+/* POP v2 가독성 개선: 기존 인쇄 배치 유지하며 핵심 요소 확대 */
+.pop-v2 .v2-recommend{width:94%!important;font-size:clamp(14px,1.6vw,23px)!important;line-height:1.06!important}
+.pop-v2 .v2-benefit{font-size:clamp(11px,1.12vw,16px)!important;letter-spacing:-.065em!important}
+.pop-v2 .v2-benefit-lines{padding:1% 1.2%!important}
+.pop-v2 .v2-final>strong{font-size:clamp(22px,2.5vw,36px)!important;letter-spacing:-.08em!important}
+@media print{
+  .pop-v2 .v2-recommend{font-size:15pt!important;width:94%!important}
+  .pop-v2 .v2-benefit{font-size:11pt!important;line-height:1.12!important}
+  .pop-v2 .v2-final>strong{font-size:24pt!important}
+  .pop-v2 .v2-final>b{font-size:13pt!important}
+}
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
