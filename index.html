@@ -704,6 +704,67 @@
       }
     }
 
+    /* 실제 A4 인쇄 시안 전면 보정: 참조 디자인과 동일한 시각적 위계 */
+    @media print{
+      .subscription-pop{
+        grid-template-rows:29mm 16mm 10mm auto auto!important;
+        padding:3mm 3.5mm!important;
+      }
+      .subscription-pop .sub-top{height:29mm!important}
+      .subscription-pop .sub-ribbon{
+        font-size:22pt!important;padding:2mm 1mm!important;
+        background:linear-gradient(120deg,#0b347f 0%,#1466ce 13%,#081e59 32%,#081c52 100%)!important;
+      }
+      .subscription-pop .sub-store-line{gap:1.2mm!important}
+      .subscription-pop .sub-store-line .sub-store{font-size:14pt!important}
+      .subscription-pop .sub-store-line .sub-store strong{font-size:12pt!important;padding:1mm 2.5mm!important}
+      .subscription-pop .sub-store-line .sub-event-period{
+        font-size:10pt!important;padding:.8mm 5mm!important;
+        border:1.2px solid #6b98d5!important;
+        background:linear-gradient(#fff,#dcecff)!important;
+      }
+      .subscription-pop .sub-title-row{
+        display:grid!important;grid-template-columns:29% 1fr 29%!important;
+        align-items:center!important;
+      }
+      .subscription-pop .sub-title-row .sub-title{
+        font-size:29pt!important;line-height:1.05!important;
+        white-space:nowrap!important;grid-column:2!important;
+      }
+      .subscription-pop .sub-title-row .sub-manager-pick{
+        font-size:12pt!important;padding:2mm 1.5mm!important;
+        border-radius:8px!important;box-shadow:0 2px 0 #985900!important;
+        justify-self:start!important;white-space:nowrap!important;
+      }
+      .subscription-pop .sub-model{font-size:12pt!important}
+      .subscription-pop .sub-details{
+        grid-template-rows:24mm 36mm 58mm 10mm!important;
+        row-gap:1.5mm!important;
+      }
+      .subscription-pop .sub-facts span{font-size:12pt!important}
+      .subscription-pop .sub-facts b{font-size:14pt!important}
+      .subscription-pop .sub-highlight>div{font-size:19pt!important}
+      .subscription-pop .sub-highlight strong{font-size:33pt!important}
+      .subscription-pop .sub-benefits{
+        grid-template-rows:12mm 8mm repeat(3,12mm)!important;
+        padding:1mm 3mm!important;align-content:center!important;
+      }
+      .subscription-pop .sub-benefits .sub-benefit,
+      .subscription-pop .sub-benefits .sub-benefit span,
+      .subscription-pop .sub-benefits .sub-benefit b{font-size:15pt!important}
+      .subscription-pop .sub-benefits .sub-care-title{font-size:13pt!important}
+      .subscription-pop .sub-benefits .sub-allcare,
+      .subscription-pop .sub-benefits .sub-allcare b,
+      .subscription-pop .sub-benefits .sub-allcare span,
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare),
+      .subscription-pop .sub-benefits>div:not(.sub-benefit):not(.sub-care-title):not(.sub-allcare) b{
+        font-size:11pt!important;line-height:1.15!important;
+      }
+      .subscription-pop .sub-gift{font-size:14pt!important}
+      .subscription-pop .sub-notes,
+      .subscription-pop .sub-notes>div{font-size:10.5pt!important;line-height:1.25!important}
+    }
+
   </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
