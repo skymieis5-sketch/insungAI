@@ -1161,6 +1161,19 @@
   #pop-modal,#pop-modal>div{height:auto!important;min-height:0!important}
 }
 
+
+/* A4 pagination: avoid Chromium rounding overflow at exact 210mm page height */
+@media print {
+ @page{size:297mm 210mm;margin:0}
+ html,body{height:auto!important;min-height:0!important;overflow:visible!important}
+ #pop-modal,#pop-modal>div,#pop-print-area{height:auto!important;min-height:0!important;max-height:none!important}
+ #pop-cards-container{width:296mm!important;grid-template-columns:148mm 148mm!important;grid-auto-rows:209mm!important;gap:0!important}
+ #pop-cards-container .sub-preview-wrap{width:148mm!important;height:209mm!important;max-height:209mm!important;break-inside:avoid!important;page-break-inside:avoid!important}
+ #pop-cards-container .pop-v2{width:148mm!important;height:209mm!important;max-height:209mm!important}
+ #pop-cards-container .sub-preview-wrap:nth-child(2n){break-after:auto!important;page-break-after:auto!important}
+ #pop-cards-container .sub-preview-wrap:nth-child(2n):not(:last-child){break-after:page!important;page-break-after:always!important}
+}
+
 </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
