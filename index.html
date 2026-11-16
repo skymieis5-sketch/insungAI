@@ -1050,7 +1050,48 @@
       #pop-cards-container .pop-v2 .v2-ribbon-title em{font-style:normal!important}
     }
 
-  </style>
+  
+/* POP PRINT MASTER 2026-11-16: print-specific physical typography and proportions */
+@media print {
+  @page { size: A4 landscape; margin: 0 }
+  #pop-cards-container { grid-template-columns:148.5mm 148.5mm!important; gap:0!important; }
+  #pop-cards-container .sub-preview-wrap { width:148.5mm!important;height:210mm!important;overflow:hidden!important; }
+  #pop-cards-container .pop-v2 {
+    width:148.5mm!important;height:210mm!important;aspect-ratio:auto!important;
+    padding:2.5mm!important;border:0.85mm solid #07185b!important;
+    border-radius:5mm!important;box-sizing:border-box!important;
+    grid-template-rows:7% 10% 5.5% 15% 6% 10.5% 13% 14% 13% 6%!important;
+    background:white!important;overflow:hidden!important;
+    font-family:'Malgun Gothic',sans-serif!important;
+  }
+  #pop-cards-container .pop-v2 .v2-store{font-size:18pt!important;letter-spacing:-.065em!important}
+  #pop-cards-container .pop-v2 .v2-lotte-symbol{font-size:20pt!important}
+  #pop-cards-container .pop-v2 .v2-ribbon{font-size:27pt!important;border-radius:5mm 5mm 1mm 1mm!important}
+  #pop-cards-container .pop-v2 .v2-event{font-size:12pt!important}
+  #pop-cards-container .pop-v2 .v2-event b{padding:1mm 2mm!important}
+  #pop-cards-container .pop-v2 .v2-event>span{padding:1mm 2mm!important}
+  #pop-cards-container .pop-v2 .v2-recommend{font-size:18pt!important}
+  #pop-cards-container .pop-v2 .v2-name{font-size:27pt!important}
+  #pop-cards-container .pop-v2 .v2-model{font-size:15pt!important;padding:1mm 2mm!important}
+  #pop-cards-container .pop-v2 .v2-duration>b{font-size:17pt!important}
+  #pop-cards-container .pop-v2 .v2-duration>strong{font-size:28pt!important}
+  #pop-cards-container .pop-v2 .v2-facts>div{font-size:14pt!important;padding:0 4%!important}
+  #pop-cards-container .pop-v2 .v2-facts strong{font-size:16pt!important}
+  #pop-cards-container .pop-v2 .v2-price>b{font-size:16pt!important}
+  #pop-cards-container .pop-v2 .v2-price>span{font-size:19pt!important}
+  #pop-cards-container .pop-v2 .v2-price>strong{font-size:35pt!important;justify-self:end!important}
+  #pop-cards-container .pop-v2 .v2-benefit-title{font-size:16pt!important}
+  #pop-cards-container .pop-v2 .v2-benefit{font-size:12.5pt!important;letter-spacing:-.07em!important}
+  #pop-cards-container .pop-v2 .v2-totals .v2-total-box>b{font-size:12pt!important}
+  #pop-cards-container .pop-v2 .v2-totals .v2-total-box>strong{font-size:15pt!important}
+  #pop-cards-container .pop-v2 .v2-totals .v2-final>b{font-size:15pt!important}
+  #pop-cards-container .pop-v2 .v2-totals .v2-final>strong{font-size:26pt!important}
+  #pop-cards-container .pop-v2 .v2-condition{font-size:11pt!important}
+  #pop-cards-container .pop-v2 .v2-condition>b{padding:1mm 2mm!important}
+  #pop-cards-container .pop-v2 .v2-condition>span{padding:1mm 1mm!important}
+}
+
+</style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
 
