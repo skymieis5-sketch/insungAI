@@ -1057,6 +1057,18 @@
  #pop-cards-container .pop-v2 .v2-condition{font-size:11pt!important}
 }
 
+
+/* 금액표 중앙 정렬 및 전체 폭 채우기 */
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.7fr)!important;gap:1.5%!important;padding:1.5% 0 0!important;align-items:stretch!important;justify-items:stretch!important;min-width:0!important}
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-total-box{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;box-sizing:border-box!important;margin:0!important;padding:0!important;overflow:hidden!important}
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-total-box>b{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 40%!important;box-sizing:border-box!important;width:100%!important;height:auto!important;margin:0!important;padding:0!important;text-align:center!important;line-height:1!important;background:linear-gradient(#154baa,#051b53)!important;color:#fff!important}
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-total-box>strong{display:flex!important;align-items:center!important;justify-content:center!important;flex:1 1 60%!important;box-sizing:border-box!important;width:100%!important;height:auto!important;margin:0!important;padding:0!important;text-align:center!important;line-height:1!important;background:#fff!important;color:#080808!important}
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-savings>b{background:#ffe500!important;color:#080808!important}
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-savings>strong{color:#d00000!important}
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-final{border:2px solid #b90000!important;background:#c90000!important}
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-final>b{background:linear-gradient(#f00,#c60000)!important;color:#fff!important}
+#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-final>strong{background:linear-gradient(#d90000,#b60000)!important;color:#fff000!important}
+@media print{#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-total-box>b{font-size:11pt!important}#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-total-box>strong{font-size:14pt!important}#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-final>b{font-size:13pt!important}#pop-cards-container .subscription-pop.pop-v2 .v2-totals>.v2-final>strong{font-size:23pt!important}}
 </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
