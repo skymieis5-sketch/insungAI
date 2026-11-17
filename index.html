@@ -1174,6 +1174,33 @@
  #pop-cards-container .sub-preview-wrap:nth-child(2n):not(:last-child){break-after:page!important;page-break-after:always!important}
 }
 
+
+/* Approved reference artwork: decorative and typography refinements */
+#pop-cards-container .pop-v2{border-radius:3.5%!important;border-color:#06165c!important}
+#pop-cards-container .pop-v2 .v2-lotte-symbol{font-family:Georgia,serif!important;font-weight:bold!important;font-style:italic!important;transform:rotate(-10deg)!important;box-shadow:0 1px 2px #d40000!important}
+#pop-cards-container .pop-v2 .v2-store{letter-spacing:-.07em!important}
+#pop-cards-container .pop-v2 .v2-ribbon{clip-path:polygon(0 18%,8% 8%,50% 0,92% 8%,100% 18%,97% 52%,100% 100%,88% 90%,50% 100%,12% 90%,0 100%,3% 52%)!important;border-radius:0!important;display:flex!important;gap:1%!important}
+#pop-cards-container .pop-v2 .v2-laurel{font-family:Georgia,serif!important;font-size:.68em!important;color:#ffec00!important;transform:rotate(-35deg)!important}
+#pop-cards-container .pop-v2 .v2-laurel-right{transform:scaleX(-1) rotate(-35deg)!important}
+#pop-cards-container .pop-v2 .v2-recommend{position:relative!important;background:#eb0000!important;color:#ffe900!important;line-height:1.05!important}
+#pop-cards-container .pop-v2 .v2-recommend .v2-crown{font-size:1.1em!important;line-height:1!important}
+#pop-cards-container .pop-v2 .v2-product-main{position:relative!important}
+#pop-cards-container .pop-v2 .v2-product-main:before,#pop-cards-container .pop-v2 .v2-product-main:after{content:'✦'!important;position:absolute!important;top:7%!important;color:#1535df!important;font-size:1.4em!important}
+#pop-cards-container .pop-v2 .v2-product-main:before{left:0!important}
+#pop-cards-container .pop-v2 .v2-product-main:after{right:0!important}
+#pop-cards-container .pop-v2 .v2-price{border-radius:3%!important}
+#pop-cards-container .pop-v2 .v2-price>strong{font-weight:1000!important;letter-spacing:-.085em!important;text-shadow:0 1px 0 #fff4!important}
+#pop-cards-container .pop-v2 .v2-benefit-lines{justify-content:space-evenly!important}
+#pop-cards-container .pop-v2 .v2-benefit{font-weight:900!important}
+#pop-cards-container .pop-v2 .v2-final{border-color:#c40000!important}
+#pop-cards-container .pop-v2 .v2-final>strong{font-weight:1000!important;letter-spacing:-.07em!important}
+@media print{
+ #pop-cards-container .pop-v2 .v2-laurel{font-size:21pt!important}
+ #pop-cards-container .pop-v2 .v2-product-main:before,#pop-cards-container .pop-v2 .v2-product-main:after{font-size:18pt!important}
+ #pop-cards-container .pop-v2 .v2-ribbon{font-size:28pt!important}
+ #pop-cards-container .pop-v2 .v2-recommend .v2-crown{font-size:18pt!important}
+}
+
 </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -3483,14 +3510,14 @@
       const isSamsung=/삼성|SAMSUNG/i.test(brand);
       const nameHtml=isLG?'<span class="v2-brand-lg">LG</span> '+popSafe(popGet(r,'품목')):isSamsung?'<span class="v2-brand-samsung">삼성</span> '+popSafe(popGet(r,'품목')):popSafe(name);
       return '<article class="subscription-pop pop-v2">'+
-        '<div class="v2-store"><span class="v2-lotte-symbol">L</span><strong>롯데하이마트 상록수점</strong></div>'+
-        '<div class="v2-ribbon"><span class="v2-ribbon-title">가전 구독 <em>특별행사</em></span></div>'+
+        '<div class="v2-store"><span class="v2-lotte-symbol">ℓ</span><strong>롯데하이마트 상록수점</strong></div>'+
+        '<div class="v2-ribbon"><span class="v2-laurel">❧</span><span class="v2-ribbon-title">가전 구독 <em>특별행사</em></span><span class="v2-laurel v2-laurel-right">❧</span></div>'+
         '<div class="v2-event"><b>▦ 행사기간</b><span>'+eventText+'</span></div>'+
-        '<div class="v2-product"><div class="v2-recommend">♛<span>구독<br>추천</span></div><div class="v2-product-main"><div class="v2-name">'+nameHtml+'</div><div class="v2-model">'+popSafe(model)+'</div></div></div>'+
+        '<div class="v2-product"><div class="v2-recommend"><span class="v2-crown">♛</span><span>구독<br>추천</span></div><div class="v2-product-main"><div class="v2-name">'+nameHtml+'</div><div class="v2-model">'+popSafe(model)+'</div></div></div>'+
         '<div class="v2-duration"><b>구독기간</b><strong>'+popSafe(months)+'개월 <small>('+Math.round(number(months)/12)+'년)</small></strong></div>'+
         '<div class="v2-facts"><div><span>기본 월 구독료</span><strong>'+popWon(base)+'</strong></div><div><span>제휴카드 월 할인</span><strong class="v2-blue">'+discountText+'</strong></div></div>'+
         '<div class="v2-price"><b>제휴카드<br>혜택가</b><span>월</span><strong>'+popWon(card)+'</strong></div>'+
-        '<div class="v2-benefits"><div class="v2-benefit-title"><span>♧</span><b>구독혜택</b></div><div class="v2-benefit-lines"><div class="v2-benefit"><i>✓</i><span>가전수리올케어 혜택 제공</span></div>'+careLine+regularLine+'</div></div>'+
+        '<div class="v2-benefits"><div class="v2-benefit-title"><span>♔</span><b>구독혜택</b></div><div class="v2-benefit-lines"><div class="v2-benefit"><i>✓</i><span>가전수리올케어 혜택 제공</span></div>'+careLine+regularLine+'</div></div>'+
         '<div class="v2-totals"><div class="v2-total-box"><b>구독총액</b><strong>'+won(fullTotal)+'</strong></div><div class="v2-total-box v2-savings"><b>총 할인금액</b><strong>'+won(totalDiscount)+'</strong></div><div class="v2-total-box v2-final"><b>♛ 최종 혜택가</b><strong>'+won(finalTotal)+'</strong></div></div>'+
         '<div class="v2-condition"><b>▤ 제휴카드 조건</b><span>전월 <strong>30만원</strong> 이상 사용실적 시 적용</span></div>'+
         '</article>';
