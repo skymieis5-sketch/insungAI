@@ -1201,6 +1201,23 @@
  #pop-cards-container .pop-v2 .v2-recommend .v2-crown{font-size:18pt!important}
 }
 
+
+/* POP final benefit contrast + tighter typography 2026-11-17 */
+#pop-cards-container .pop-v2 .v2-final{display:flex!important;flex-direction:column!important;overflow:hidden!important;background:#fff!important;border:2px solid #d00000!important}
+#pop-cards-container .pop-v2 .v2-final>b{background:#cf0000!important;color:#fff!important;width:100%!important;flex:0 0 42%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-weight:900!important;letter-spacing:-.045em!important}
+#pop-cards-container .pop-v2 .v2-final>strong{background:#fff!important;color:#d00000!important;width:100%!important;flex:1!important;display:flex!important;align-items:center!important;justify-content:center!important;font-weight:1000!important;letter-spacing:-.075em!important;text-shadow:none!important}
+#pop-cards-container .pop-v2 .v2-price{grid-template-columns:31% 9% minmax(0,60%)!important}
+#pop-cards-container .pop-v2 .v2-price>strong{letter-spacing:-.09em!important;padding-right:1%!important}
+#pop-cards-container .pop-v2 .v2-benefit-lines{justify-content:center!important;gap:1%!important}
+#pop-cards-container .pop-v2 .v2-benefit{line-height:1.05!important;letter-spacing:-.08em!important}
+#pop-cards-container .pop-v2 .v2-totals{gap:1%!important}
+#pop-cards-container .pop-v2 .v2-name{letter-spacing:-.09em!important}
+#pop-cards-container .pop-v2 .v2-facts>div{letter-spacing:-.05em!important}
+@media print{
+ #pop-cards-container .pop-v2 .v2-final>b{font-size:15pt!important}
+ #pop-cards-container .pop-v2 .v2-final>strong{font-size:25pt!important}
+}
+
 </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -3518,7 +3535,7 @@
         '<div class="v2-facts"><div><span>기본 월 구독료</span><strong>'+popWon(base)+'</strong></div><div><span>제휴카드 월 할인</span><strong class="v2-blue">'+discountText+'</strong></div></div>'+
         '<div class="v2-price"><b>제휴카드<br>혜택가</b><span>월</span><strong>'+popWon(card)+'</strong></div>'+
         '<div class="v2-benefits"><div class="v2-benefit-title"><span>♔</span><b>구독혜택</b></div><div class="v2-benefit-lines"><div class="v2-benefit"><i>✓</i><span>가전수리올케어 혜택 제공</span></div>'+careLine+regularLine+'</div></div>'+
-        '<div class="v2-totals"><div class="v2-total-box"><b>구독총액</b><strong>'+won(fullTotal)+'</strong></div><div class="v2-total-box v2-savings"><b>총 할인금액</b><strong>'+won(totalDiscount)+'</strong></div><div class="v2-total-box v2-final"><b>♛ 최종 혜택가</b><strong>'+won(finalTotal)+'</strong></div></div>'+
+        '<div class="v2-totals"><div class="v2-total-box"><b>구독총액</b><strong>'+won(fullTotal)+'</strong></div><div class="v2-total-box v2-savings"><b>총 할인금액</b><strong>'+won(totalDiscount)+'</strong></div><div class="v2-total-box v2-final"><b>최종 혜택가</b><strong>'+won(finalTotal)+'</strong></div></div>'+
         '<div class="v2-condition"><b>▤ 제휴카드 조건</b><span>전월 <strong>30만원</strong> 이상 사용실적 시 적용</span></div>'+
         '</article>';
     }
