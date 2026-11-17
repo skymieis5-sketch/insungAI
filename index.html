@@ -1218,6 +1218,28 @@
  #pop-cards-container .pop-v2 .v2-final>strong{font-size:25pt!important}
 }
 
+
+/* POP clean revision 2026-11-17: no decorative glyphs; compact price and single-line warranty */
+#pop-cards-container .pop-v2 .v2-laurel,
+#pop-cards-container .pop-v2 .v2-crown,
+#pop-cards-container .pop-v2 .v2-benefit-title>span{display:none!important}
+#pop-cards-container .pop-v2 .v2-product-main:before,
+#pop-cards-container .pop-v2 .v2-product-main:after{content:none!important;display:none!important}
+#pop-cards-container .pop-v2 .v2-ribbon{gap:0!important}
+#pop-cards-container .pop-v2 .v2-recommend{font-weight:1000!important}
+#pop-cards-container .pop-v2 .v2-price{grid-template-columns:31% 9% minmax(0,60%)!important;padding:1% 1.5%!important}
+#pop-cards-container .pop-v2 .v2-price>span{justify-self:center!important}
+#pop-cards-container .pop-v2 .v2-price>strong{justify-self:start!important;margin-left:1%!important;letter-spacing:-.075em!important;max-width:100%!important}
+#pop-cards-container .pop-v2 .v2-benefits{grid-template-columns:25% minmax(0,75%)!important}
+#pop-cards-container .pop-v2 .v2-benefit-lines{padding:0 1%!important;gap:0!important}
+#pop-cards-container .pop-v2 .v2-benefit{font-size:clamp(10px,1.13vw,16px)!important;letter-spacing:-.085em!important;white-space:nowrap!important;line-height:1!important;min-width:0!important}
+#pop-cards-container .pop-v2 .v2-benefit span{white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;min-width:0!important}
+#pop-cards-container .pop-v2 .v2-benefit i{width:.65em!important;height:.65em!important;min-width:.65em!important;border-radius:50%!important;background:#1d4cbd!important}
+@media print{
+ #pop-cards-container .pop-v2 .v2-benefit{font-size:9pt!important;letter-spacing:-.09em!important}
+ #pop-cards-container .pop-v2 .v2-price>strong{font-size:34pt!important}
+}
+
 </style>
 </head>
 <body class="p-2.5 sm:p-4 md:p-8 min-h-screen">
@@ -3520,23 +3542,23 @@
       const finalTotal=fullTotal-totalDiscount;
       const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
       const discountText=monthlyDiscount>0?'-'+won(monthlyDiscount):'0원';
-      const careLine='<div class="v2-benefit"><i>✓</i><span>'+popSafe([popGet(r,'안심케어1'),popGet(r,'안심케어2 횟수'),popGet(r,'안심케어2')?'('+popGet(r,'안심케어2')+')':''].filter(Boolean).join(' ') || '완전분해청소 1회 (24개월 주기)')+'</span></div>';
-      const regularLine='<div class="v2-benefit"><i>✓</i><span>'+popSafe(popGet(r,'정기케어2') || '제조사 기본 A/S + 최대 4년 연장 (총 5년 무상보증)')+'</span></div>';
+      const careLine='<div class="v2-benefit"><i></i><span>'+popSafe([popGet(r,'안심케어1'),popGet(r,'안심케어2 횟수'),popGet(r,'안심케어2')?'('+popGet(r,'안심케어2')+')':''].filter(Boolean).join(' ') || '완전분해청소 1회 (24개월 주기)')+'</span></div>';
+      const regularLine='<div class="v2-benefit"><i></i><span>'+popSafe(popGet(r,'정기케어2') || '제조사 기본 A/S + 최대 4년 연장 (총 5년 무상보증)')+'</span></div>';
       const eventText=term?popSafe(term):'행사기간 별도 확인';
       const isLG=/LG|엘지/i.test(brand);
       const isSamsung=/삼성|SAMSUNG/i.test(brand);
       const nameHtml=isLG?'<span class="v2-brand-lg">LG</span> '+popSafe(popGet(r,'품목')):isSamsung?'<span class="v2-brand-samsung">삼성</span> '+popSafe(popGet(r,'품목')):popSafe(name);
       return '<article class="subscription-pop pop-v2">'+
-        '<div class="v2-store"><span class="v2-lotte-symbol">ℓ</span><strong>롯데하이마트 상록수점</strong></div>'+
-        '<div class="v2-ribbon"><span class="v2-laurel">❧</span><span class="v2-ribbon-title">가전 구독 <em>특별행사</em></span><span class="v2-laurel v2-laurel-right">❧</span></div>'+
-        '<div class="v2-event"><b>▦ 행사기간</b><span>'+eventText+'</span></div>'+
-        '<div class="v2-product"><div class="v2-recommend"><span class="v2-crown">♛</span><span>구독<br>추천</span></div><div class="v2-product-main"><div class="v2-name">'+nameHtml+'</div><div class="v2-model">'+popSafe(model)+'</div></div></div>'+
+        '<div class="v2-store"><span class="v2-lotte-symbol">L</span><strong>롯데하이마트 상록수점</strong></div>'+
+        '<div class="v2-ribbon"><span class="v2-ribbon-title">가전 구독 <em>특별행사</em></span></div>'+
+        '<div class="v2-event"><b>행사기간</b><span>'+eventText+'</span></div>'+
+        '<div class="v2-product"><div class="v2-recommend"><span>구독<br>추천</span></div><div class="v2-product-main"><div class="v2-name">'+nameHtml+'</div><div class="v2-model">'+popSafe(model)+'</div></div></div>'+
         '<div class="v2-duration"><b>구독기간</b><strong>'+popSafe(months)+'개월 <small>('+Math.round(number(months)/12)+'년)</small></strong></div>'+
         '<div class="v2-facts"><div><span>기본 월 구독료</span><strong>'+popWon(base)+'</strong></div><div><span>제휴카드 월 할인</span><strong class="v2-blue">'+discountText+'</strong></div></div>'+
         '<div class="v2-price"><b>제휴카드<br>혜택가</b><span>월</span><strong>'+popWon(card)+'</strong></div>'+
-        '<div class="v2-benefits"><div class="v2-benefit-title"><span>♔</span><b>구독혜택</b></div><div class="v2-benefit-lines"><div class="v2-benefit"><i>✓</i><span>가전수리올케어 혜택 제공</span></div>'+careLine+regularLine+'</div></div>'+
+        '<div class="v2-benefits"><div class="v2-benefit-title"><b>구독혜택</b></div><div class="v2-benefit-lines"><div class="v2-benefit"><i></i><span>가전수리올케어 혜택 제공</span></div>'+careLine+regularLine+'</div></div>'+
         '<div class="v2-totals"><div class="v2-total-box"><b>구독총액</b><strong>'+won(fullTotal)+'</strong></div><div class="v2-total-box v2-savings"><b>총 할인금액</b><strong>'+won(totalDiscount)+'</strong></div><div class="v2-total-box v2-final"><b>최종 혜택가</b><strong>'+won(finalTotal)+'</strong></div></div>'+
-        '<div class="v2-condition"><b>▤ 제휴카드 조건</b><span>전월 <strong>30만원</strong> 이상 사용실적 시 적용</span></div>'+
+        '<div class="v2-condition"><b>제휴카드 조건</b><span>전월 <strong>30만원</strong> 이상 사용실적 시 적용</span></div>'+
         '</article>';
     }
     function renderPOPCards(){
